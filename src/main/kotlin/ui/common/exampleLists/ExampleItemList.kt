@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import data.VehicleModel
 import ui.common.DiplomDivider
 import ui.common.DiplomItemText
+import util.Constant
 
 @Composable
 fun ExampleItemList(
@@ -20,7 +21,7 @@ fun ExampleItemList(
     Row(
         modifier = Modifier
             .height(40.dp)
-            .width(800.dp)
+            .width(Constant.WINDOW_WIDTH - 20.dp)
             .clickable {}
             .background(color = color.first)
             .padding(5.dp),
@@ -29,38 +30,39 @@ fun ExampleItemList(
     ) {
         DiplomItemText(
             text = item.fioDriver,
+            textWidth = 350.dp,
         )
         DiplomDivider(
             color = color.second,
-            size = 1.dp,
             isHorizontal = false,
         )
         DiplomItemText(
-            text = item.phoneDriver
+            text = item.phoneDriver,
+            textWidth = 200.dp,
         )
         DiplomDivider(
             color = color.second,
-            size = 1.dp,
             isHorizontal = false,
         )
         DiplomItemText(
-            text = item.vehicleNumber
+            text = item.vehicleNumber,
+            textWidth = 150.dp,
         )
         DiplomDivider(
             color = color.second,
-            size = 1.dp,
             isHorizontal = false,
         )
         DiplomItemText(
-            text = item.vehicleModel
+            text = item.vehicleModel,
+            textWidth = 300.dp,
         )
         DiplomDivider(
             color = color.second,
-            size = 1.dp,
             isHorizontal = false,
         )
         DiplomItemText(
-            text = item.routeType.toString()
+            text = item.routeType.toString(),
+            textWidth = 200.dp,
         )
     }
 }

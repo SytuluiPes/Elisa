@@ -3,25 +3,31 @@ package ui.route
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import data.VehicleModel
+import data.VehicleModel.RouteType
 import data.VehicleModel.RouteType.Cargo
 import data.VehicleModel.RouteType.Documents
+import ui.common.DiplomDivider
 import ui.common.DiplomHeader
+import ui.common.DiplomHeaderText
 import ui.common.TextFieldItem
 import ui.common.buttons.FooterButtons
-import ui.common.exampleLists.ExampleColumnList
+import ui.common.exampleLists.AvailableVehicleList
+import util.Constant
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun AvailableVehicleListScreen(
+fun AvailableVehicleScreen(
     onBackClick: () -> Unit,
-    itemList: List<VehicleModel> = listOf(
+    itemList: MutableList<VehicleModel> = mutableStateListOf(
         VehicleModel(
             fioDriver = "Ковалев Артем Александрович",
             phoneDriver = "89203334411",
@@ -108,26 +114,79 @@ fun AvailableVehicleListScreen(
         )
     ),
 ) {
-    var fio by remember { mutableStateOf("") }
-    var phoneNumber by remember { mutableStateOf("") }
-    var carNumber by remember { mutableStateOf("") }
-    var makeAndModelCar by remember { mutableStateOf("") }
-    var typeTransportation by remember { mutableStateOf("") }
+    var reset by remember { mutableStateOf(false) }
+    var fio by remember(reset) { mutableStateOf("") }
+    var phoneNumber by remember(reset) { mutableStateOf("") }
+    var carNumber by remember(reset) { mutableStateOf("") }
+    var makeAndModelCar by remember(reset) { mutableStateOf("") }
+    var typeTransportation by remember(reset) { mutableStateOf("") }
+
+    val isFilled: Boolean by remember {
+        derivedStateOf {
+            fio.isNotEmpty()
+            phoneNumber.isNotEmpty()
+            carNumber.isNotEmpty()
+            makeAndModelCar.isNotEmpty()
+        }
+    }
 
     Column(
         modifier = Modifier
-            .sizeIn(minWidth = 800.dp, minHeight = 400.dp)
+            .size(width = Constant.WINDOW_WIDTH, height = Constant.WINDOW_HEIGHT)
             .background(Color(0xFFE8E8E8))
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
-        Spacer(Modifier.size(3.dp))
+        Spacer(Modifier.size(5.dp))
         DiplomHeader(
             text = "Перечень доступных транспортных средств",
             isMain = false,
         )
-        ExampleColumnList(itemList)
+        Spacer(Modifier.size(2.dp))
+        Row(
+            modifier = Modifier
+                .padding(start = 10.dp, end = 10.dp, top = 10.dp)
+                .height(60.dp)
+                .width(Constant.WINDOW_WIDTH - 20.dp)
+                .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
+                .background(Color(0xFF464859)),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(2.dp)
+        ) {
+            DiplomHeaderText(
+                text = "ФИО водителя",
+                textWidth = 350.dp,
+            )
+            DiplomDivider(
+                isHorizontal = false,
+            )
+            DiplomHeaderText(
+                text = "Телефон водителя",
+                textWidth = 200.dp,
+            )
+            DiplomDivider(
+                isHorizontal = false,
+            )
+            DiplomHeaderText(
+                text = "Номер автомобиля",
+                textWidth = 150.dp,
+            )
+            DiplomDivider(
+                isHorizontal = false,
+            )
+            DiplomHeaderText(
+                text = "Марка автомобиля",
+                textWidth = 300.dp,
+            )
+            DiplomDivider(
+                isHorizontal = false,
+            )
+            DiplomHeaderText(
+                text = "Назначение",
+                textWidth = 200.dp,
+            )
+        }
+        AvailableVehicleList(itemList)
         FlowRow(
             modifier = Modifier
                 .padding(10.dp)
@@ -164,9 +223,28 @@ fun AvailableVehicleListScreen(
             )
         }
         FooterButtons(
-            //TODO()
-            onAddClick = {},
+            onAddClick = {
+                if (isFilled) {
+                    itemList.add(
+                        VehicleModel(
+                            fioDriver = fio,
+                            phoneDriver = phoneNumber,
+                            vehicleNumber = carNumber,
+                            vehicleModel = makeAndModelCar,
+                            routeType = typeTransportation.asRouteType(),
+                        )
+                    )
+                    reset = true
+                }
+            },
             onCloseClick = onBackClick,
         )
     }
 }
+
+private fun String.asRouteType(): RouteType =
+    when (this) {
+        Cargo.toString() -> Cargo
+        Documents.toString() -> Documents
+        else -> RouteType.None
+    }

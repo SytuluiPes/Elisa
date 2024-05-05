@@ -11,22 +11,25 @@ data class VehicleModel(
 ) {
     init { // 89604201122 -> 8-960-420-11-22
         phoneDriver = "${phoneDriver.first()}" +
-                "-${phoneDriver.subSequence(1, 3)}" +
+                "-${phoneDriver.subSequence(1, 4)}" +
                 "-${phoneDriver.subSequence(4, 6)}" +
-                "-${phoneDriver.subSequence(7, 8)}" +
-                "-${phoneDriver.subSequence(9, 10)}"
+                "-${phoneDriver.subSequence(6, 8)}" +
+                "-${phoneDriver.subSequence(8, 10)}"
     }
 
-    enum class RouteType {
-        Cargo {
+    sealed class RouteType {
+        object Cargo : RouteType() {
             override fun toString(): String {
                 return "Грузовой"
             }
-        },
-        Documents {
+        }
+
+        object Documents : RouteType() {
             override fun toString(): String {
                 return "Документы"
             }
-        };
+        }
+
+        object None : RouteType()
     }
 }

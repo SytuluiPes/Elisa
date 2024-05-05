@@ -2,10 +2,7 @@ package ui.authorization
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -38,17 +35,19 @@ fun AutorizationItem(
                 fontSize = 22.sp,
             )
             Spacer(Modifier.size(5.dp))
-            TextField(
-                modifier = if (borderColor != null && text.isEmpty())
-                    Modifier.height(60.dp).border(BorderStroke(1.dp, borderColor))
-                else
-                    Modifier.height(60.dp),
-                value = text,
-                textStyle = TextStyle(fontSize = 18.sp),
-                colors = TextFieldDefaults.textFieldColors(Color.Blue),
-                onValueChange = onValueChange,
-                singleLine = true,
-            )
+            Box {
+                TextField(
+                    modifier = if (borderColor != null && text.isEmpty())
+                        Modifier.height(60.dp).border(BorderStroke(1.dp, borderColor))
+                    else
+                        Modifier.height(60.dp),
+                    value = text,
+                    textStyle = TextStyle(fontSize = 18.sp),
+                    colors = TextFieldDefaults.textFieldColors(Color.Blue),
+                    onValueChange = onValueChange,
+                    singleLine = true,
+                )
+            }
         }
     }
 }

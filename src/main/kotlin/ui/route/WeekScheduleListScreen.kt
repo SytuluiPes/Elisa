@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import ui.common.DiplomHeader
 import ui.common.TextFieldItem
 import ui.common.buttons.FooterButtons
-import ui.common.exampleLists.ExampleColumnList
+import ui.common.exampleLists.AvailableVehicleList
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -42,7 +42,7 @@ fun WeekScheduleListScreen(
             text = "Перечень доступных транспортных средств",
             isMain = false,
         )
-        ExampleColumnList()
+        AvailableVehicleList()
         FlowRow(
             modifier = Modifier
                 .padding(10.dp)

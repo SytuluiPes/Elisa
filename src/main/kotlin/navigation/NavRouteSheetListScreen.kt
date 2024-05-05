@@ -1,7 +1,7 @@
 package navigation
 
 import androidx.compose.runtime.*
-import ui.route.AvailableVehicleListScreen
+import ui.route.AvailableVehicleScreen
 import ui.route.RouteSheetListScreen
 import ui.route.WeekScheduleListScreen
 
@@ -24,7 +24,7 @@ object NavRouteSheetListScreen {
                 onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }
             )
 
-            RouteSheetDestination.AvailableVehicleListScreen -> AvailableVehicleListScreen(
+            RouteSheetDestination.AvailableVehicleListScreen -> AvailableVehicleScreen(
                 onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }
             )
         }

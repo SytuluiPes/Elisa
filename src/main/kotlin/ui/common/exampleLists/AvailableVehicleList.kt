@@ -2,27 +2,28 @@ package ui.common.exampleLists
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import data.VehicleModel
+import util.Constant
 
 @Composable
-fun ExampleColumnList(
+fun AvailableVehicleList(
     itemList: List<VehicleModel> = emptyList(),
 ) {
     LazyColumn(
         modifier = Modifier
-            .padding(10.dp)
+            .padding(start = 10.dp, end = 10.dp, bottom = 10.dp)
             .height(400.dp)
-            .fillMaxWidth()
+            .width(Constant.WINDOW_WIDTH - 20.dp)
             .border(
-                width = 1.dp,
+                width = 0.5.dp,
                 color = Color.Black,
             )
             .background(color = Color.Gray),

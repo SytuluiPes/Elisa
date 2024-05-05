@@ -47,13 +47,12 @@ fun AuthorizationScreen(
         Spacer(Modifier.size(30.dp))
         DiplomButton(
             textButton = "Войти",
-            onButtonClick = onButtonClick,
-//            { // TODO(Check login)
-//                borderColor = if (login.isEmpty() || pass.isEmpty()) Color.Red else null
-//                if (borderColor != Color.Red) {
-//                    onButtonClick()
-//                }
-//            },
+            onButtonClick = {
+                borderColor = if (login.isEmpty() || pass.isEmpty()) Color.Red else null
+                if (borderColor != Color.Red) {
+                    onButtonClick()
+                }
+            },
         )
     }
 }
