@@ -8,7 +8,7 @@ import navigation.NavRoot
 class App {
     init {
         application {
-            val windowSize = rememberWindowState(size = DpSize(1000.dp, 600.dp))
+            val windowSize = rememberWindowState(size = DpSize(800.dp, 600.dp))
 
             Window(
                 onCloseRequest = ::exitApplication,

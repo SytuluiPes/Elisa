@@ -1,4 +1,4 @@
-package ui
+package ui.weekSchedule
 
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton

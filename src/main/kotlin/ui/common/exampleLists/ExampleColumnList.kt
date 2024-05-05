@@ -2,25 +2,24 @@ package ui.common.exampleLists
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import data.VehicleModel
 
 @Composable
-fun ExampleColumnList() {
+fun ExampleColumnList(
+    itemList: List<VehicleModel> = emptyList(),
+) {
     LazyColumn(
         modifier = Modifier
             .padding(10.dp)
-            .height(200.dp)
+            .height(400.dp)
             .fillMaxWidth()
             .border(
                 width = 1.dp,
@@ -29,24 +28,14 @@ fun ExampleColumnList() {
             .background(color = Color.Gray),
         userScrollEnabled = true,
     ) {
-        repeat(50) {
+        itemList.forEachIndexed { index, item ->
             item {
-                Text(
-                    text = it.toString(),
-                    modifier = Modifier
-                        .height(40.dp)
-                        .fillMaxWidth()
-                        .clickable {}
-                        .background(
-                            color =
-                            if (it % 2 == 0)
-                                Color(0xFFFFFFFF)
-                            else
-                                Color(0xFFF0F3FF),
-                        ),
-                    fontSize = 14.sp,
-                    textAlign = TextAlign.Center,
-                    color = Color.Black,
+                ExampleItemList(
+                    item = item,
+                    color = if (index % 2 == 0)
+                        Pair(Color(0xFFFFFFFF), Color(0xFFF0F3FF))
+                    else
+                        Pair(Color(0xFFF0F3FF), Color(0xFFFFFFFF)),
                 )
             }
         }

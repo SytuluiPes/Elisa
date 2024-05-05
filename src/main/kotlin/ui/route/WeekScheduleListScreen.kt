@@ -1,4 +1,4 @@
-package ui
+package ui.route
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -16,18 +16,22 @@ import ui.common.exampleLists.ExampleColumnList
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun AvailableVehicleListScreen(
+fun WeekScheduleListScreen(
     onBackClick: () -> Unit,
 ) {
-    var fio by remember { mutableStateOf("") }
+    var customerFio by remember { mutableStateOf("") }
+    var address by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
-    var carNumber by remember { mutableStateOf("") }
-    var makeAndModelCar by remember { mutableStateOf("") }
+    var productName by remember { mutableStateOf("") }
+    var units by remember { mutableStateOf("") }
+    var count by remember { mutableStateOf("") }
+    var total by remember { mutableStateOf("") }
+    var dateDelivery by remember { mutableStateOf("") }
     var typeTransportation by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
-            .sizeIn(minWidth = 800.dp, minHeight = 400.dp)
+            .fillMaxSize()
             .background(Color(0xFFE8E8E8))
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -49,28 +53,48 @@ fun AvailableVehicleListScreen(
             maxItemsInEachRow = 3,
         ) {
             TextFieldItem(
-                text = fio,
-                label = "ФИО водителя:",
-                onValueChange = { fio = it }
+                text = customerFio,
+                label = "Заказчик:",
+                onValueChange = { customerFio = it }
+            )
+            TextFieldItem(
+                text = address,
+                label = "Адрес:",
+                onValueChange = { address = it }
             )
             TextFieldItem(
                 text = phoneNumber,
-                label = "Телефон водителя:",
+                label = "Телефон заказчика:",
                 onValueChange = { phoneNumber = it }
             )
             TextFieldItem(
-                text = carNumber,
-                label = "Номер т-с:",
-                onValueChange = { carNumber = it }
+                text = productName,
+                label = "Наименование продукции:",
+                onValueChange = { productName = it }
             )
             TextFieldItem(
-                text = makeAndModelCar,
-                label = "Марка и модель т-с:",
-                onValueChange = { makeAndModelCar = it }
+                text = units,
+                label = "Ед.изм.:",
+                onValueChange = { units = it }
+            )
+            TextFieldItem(
+                text = count,
+                label = "Кол-во:",
+                onValueChange = { count = it }
+            )
+            TextFieldItem(
+                text = total,
+                label = "Стоимость продукции:",
+                onValueChange = { total = it }
+            )
+            TextFieldItem(
+                text = dateDelivery,
+                label = "Срок поставки:",
+                onValueChange = { dateDelivery = it }
             )
             TextFieldItem(
                 text = typeTransportation,
-                label = "Виды перевозок:",
+                label = "Тип перевозки:",
                 onValueChange = { typeTransportation = it }
             )
         }
