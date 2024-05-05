@@ -21,11 +21,9 @@ object NavRoot {
 
 object NavMainScreen {
     @Composable
-    fun init(
-        defaultDestination: Boolean = false,
-    ) {
+    fun init() {
         var navigation: MainScreenDestination by
-        remember(defaultDestination) { mutableStateOf(MainScreenDestination.MainScreen) }
+        remember { mutableStateOf(MainScreenDestination.MainScreen) }
 
         when (navigation) {
             MainScreenDestination.MainScreen -> MainScreen(
@@ -43,11 +41,9 @@ object NavMainScreen {
 
 object NavRouteSheetListScreen {
     @Composable
-    fun init(
-        defaultDestination: Boolean = false,
-    ) {
+    fun init() {
         var navigation: RouteSheetDestination by
-        remember(defaultDestination) { mutableStateOf(RouteSheetDestination.RouteSheetListScreen) }
+        remember { mutableStateOf(RouteSheetDestination.RouteSheetListScreen) }
 
         when (navigation) {
             RouteSheetDestination.RouteSheetListScreen ->
@@ -56,7 +52,7 @@ object NavRouteSheetListScreen {
                     onItemClick = { itemDestination -> navigation = itemDestination },
                 )
 
-            RouteSheetDestination.MainScreen -> NavMainScreen.init(true)
+            RouteSheetDestination.MainScreen -> NavMainScreen.init()
 
             RouteSheetDestination.WeekScheduleListScreen -> WeekScheduleListScreen(
                 onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }

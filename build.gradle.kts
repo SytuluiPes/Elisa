@@ -24,7 +24,7 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "AuthorizationScreenKt"
+        mainClass = "AppKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
