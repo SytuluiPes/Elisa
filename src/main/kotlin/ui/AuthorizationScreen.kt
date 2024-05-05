@@ -148,7 +148,8 @@ fun MainScreen(
 
 @Composable
 fun RouteSheetListScreen(
-    onBackClick: (RouteSheetDestination) -> Unit = {},
+    onBackClick: () -> Unit,
+    onItemClick: (RouteSheetDestination) -> Unit,
 ) {
     Column(
         modifier = Modifier.fillMaxSize().background(Color(0xFFE8E8E8)),
@@ -175,9 +176,11 @@ fun RouteSheetListScreen(
             ) {
                 DiplomSmallItemButton(
                     textButton = "Недельный график поставки готовой продукции",
+                    onButtonClick = { onItemClick(RouteSheetDestination.WeekScheduleListScreen) },
                 )
                 DiplomSmallItemButton(
                     textButton = "Перечень доступных транспортных средств",
+                    onButtonClick = { onItemClick(RouteSheetDestination.AvailableVehicleListScreen) },
                 )
                 DiplomSmallItemButton(
                     textButton = "Решение задачи",
@@ -187,7 +190,7 @@ fun RouteSheetListScreen(
                 )
                 DiplomSmallItemButton(
                     textButton = "Закрыть",
-                    onButtonClick = { onBackClick(RouteSheetDestination.MainScreen) },
+                    onButtonClick = onBackClick,
                 )
             }
         }
@@ -256,8 +259,8 @@ fun AvailableVehicleListScreen(
         }
         FooterButtons(
             //TODO()
-            onButtonAddClick = {},
-            onButtonCloseClick = onBackClick,
+            onAddClick = {},
+            onCloseClick = onBackClick,
         )
     }
 }
@@ -348,15 +351,19 @@ fun WeekScheduleListScreen(
         }
         FooterButtons(
             //TODO()
-            onButtonAddClick = {},
-            onButtonCloseClick = onBackClick,
+            onAddClick = {},
+            onCloseClick = onBackClick,
         )
     }
 }
 
 @Composable
-fun MonthScheduleScreen() {
-    Text("Month")
+fun MonthScheduleScreen(
+    onBackClick: () -> Unit,
+) {
+    TextButton(onClick = onBackClick) {
+        Text("Back to MainScreen")
+    }
 }
 
 @Composable
@@ -373,8 +380,8 @@ fun ReportScreen() {
 
 @Composable
 fun FooterButtons(
-    onButtonAddClick: () -> Unit,
-    onButtonCloseClick: () -> Unit,
+    onAddClick: () -> Unit,
+    onCloseClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier.size(height = 60.dp, width = 600.dp),
@@ -383,11 +390,11 @@ fun FooterButtons(
     ) {
         DiplomSmallItemButton(
             textButton = "Добавить",
-            onButtonClick = onButtonAddClick,
+            onButtonClick = onAddClick,
         )
         DiplomSmallItemButton(
             textButton = "Закрыть",
-            onButtonClick = onButtonCloseClick,
+            onButtonClick = onCloseClick,
         )
     }
 }

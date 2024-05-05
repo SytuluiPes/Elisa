@@ -1,16 +1,14 @@
 package navigation
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import ui.*
 
 object NavRoot {
-    private var navigation: RootDestination by mutableStateOf(RootDestination.Authorization)
-
     @Composable
     fun init() {
+        var navigation: RootDestination by
+        remember { mutableStateOf(RootDestination.Authorization) }
+
         when (navigation) {
             RootDestination.Authorization -> AuthorizationScreen(
                 onButtonClick = { navigation = RootDestination.MainScreen }
@@ -22,23 +20,19 @@ object NavRoot {
 }
 
 object NavMainScreen {
-    private var navigation: MainScreenDestination by mutableStateOf(MainScreenDestination.MainScreen)
-
     @Composable
     fun init(
-        defaultDestination: MainScreenDestination? = null
+        defaultDestination: Boolean = false,
     ) {
-        if (defaultDestination != null) {
-            navigation = defaultDestination
-        }
+        var navigation: MainScreenDestination by
+        remember(defaultDestination) { mutableStateOf(MainScreenDestination.MainScreen) }
+
         when (navigation) {
             MainScreenDestination.MainScreen -> MainScreen(
-                onItemClick = { destination -> navigation = destination }
+                onItemClick = { itemDestination -> navigation = itemDestination }
             )
 
-            MainScreenDestination.RouteSheetListScreen -> NavRouteSheetListScreen.init(
-                RouteSheetDestination.RouteSheetListScreen
-            )
+            MainScreenDestination.RouteSheetListScreen -> NavRouteSheetListScreen.init()
 
             MainScreenDestination.MonthScheduleScreen -> TODO()
             MainScreenDestination.WeekScheduleScreen -> TODO()
@@ -48,24 +42,22 @@ object NavMainScreen {
 }
 
 object NavRouteSheetListScreen {
-    private var navigation: RouteSheetDestination by mutableStateOf(
-        RouteSheetDestination.RouteSheetListScreen
-    )
-
     @Composable
     fun init(
-        defaultDestination: RouteSheetDestination? = null
+        defaultDestination: Boolean = false,
     ) {
-        if (defaultDestination != null) {
-            navigation = defaultDestination
-        }
+        var navigation: RouteSheetDestination by
+        remember(defaultDestination) { mutableStateOf(RouteSheetDestination.RouteSheetListScreen) }
+
         when (navigation) {
             RouteSheetDestination.RouteSheetListScreen ->
                 RouteSheetListScreen(
-                    onBackClick = { navigation = RouteSheetDestination.MainScreen }
+                    onBackClick = { navigation = RouteSheetDestination.MainScreen },
+                    onItemClick = { itemDestination -> navigation = itemDestination },
                 )
 
-            RouteSheetDestination.MainScreen -> NavMainScreen.init(MainScreenDestination.MainScreen)
+            RouteSheetDestination.MainScreen -> NavMainScreen.init(true)
+
             RouteSheetDestination.WeekScheduleListScreen -> WeekScheduleListScreen(
                 onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }
             )
@@ -74,6 +66,15 @@ object NavRouteSheetListScreen {
                 onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }
             )
         }
+    }
+}
+
+object NavMonthScheduleScreen {
+    @Composable
+    fun init(
+        defaultDestination: Boolean = false,
+    ) {
+
     }
 }
 
