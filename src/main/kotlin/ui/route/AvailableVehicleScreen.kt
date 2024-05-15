@@ -15,9 +15,9 @@ import data.VehicleModel
 import data.VehicleModel.RouteType
 import data.VehicleModel.RouteType.Cargo
 import data.VehicleModel.RouteType.Documents
-import ui.common.DiplomDivider
-import ui.common.DiplomHeader
-import ui.common.DiplomHeaderText
+import ui.common.ElisaDivider
+import ui.common.ElisaHeader
+import ui.common.ElisaHeaderText
 import ui.common.TextFieldItem
 import ui.common.buttons.FooterButtons
 import ui.common.exampleLists.AvailableVehicleList
@@ -138,7 +138,7 @@ fun AvailableVehicleScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.size(5.dp))
-        DiplomHeader(
+        ElisaHeader(
             text = "Перечень доступных транспортных средств",
             isMain = false,
         )
@@ -153,35 +153,35 @@ fun AvailableVehicleScreen(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
-            DiplomHeaderText(
+            ElisaHeaderText(
                 text = "ФИО водителя",
                 textWidth = 350.dp,
             )
-            DiplomDivider(
+            ElisaDivider(
                 isHorizontal = false,
             )
-            DiplomHeaderText(
+            ElisaHeaderText(
                 text = "Телефон водителя",
                 textWidth = 200.dp,
             )
-            DiplomDivider(
+            ElisaDivider(
                 isHorizontal = false,
             )
-            DiplomHeaderText(
+            ElisaHeaderText(
                 text = "Номер автомобиля",
                 textWidth = 150.dp,
             )
-            DiplomDivider(
+            ElisaDivider(
                 isHorizontal = false,
             )
-            DiplomHeaderText(
+            ElisaHeaderText(
                 text = "Марка автомобиля",
                 textWidth = 300.dp,
             )
-            DiplomDivider(
+            ElisaDivider(
                 isHorizontal = false,
             )
-            DiplomHeaderText(
+            ElisaHeaderText(
                 text = "Назначение",
                 textWidth = 200.dp,
             )

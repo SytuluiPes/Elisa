@@ -8,9 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import navigation.RouteSheetDestination
-import ui.common.DiplomDivider
-import ui.common.DiplomHeader
-import ui.common.buttons.DiplomSmallItemButton
+import ui.common.ElisaDivider
+import ui.common.ElisaHeader
+import ui.common.buttons.ElisaSmallItemButton
 import ui.common.exampleLists.ExampleRowList
 
 @Composable
@@ -24,12 +24,12 @@ fun RouteSheetListScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         Spacer(Modifier.size(15.dp))
-        DiplomHeader(
+        ElisaHeader(
             text = "Маршрутный лист движения транспортного средства",
             isMain = false,
         )
         Spacer(Modifier.size(10.dp))
-        DiplomDivider()
+        ElisaDivider()
         Spacer(Modifier.size(5.dp))
         Row(
             modifier = Modifier.fillMaxSize(),
@@ -41,21 +41,21 @@ fun RouteSheetListScreen(
                 modifier = Modifier.width(200.dp).fillMaxHeight().padding(top = 10.dp),
                 verticalArrangement = Arrangement.spacedBy(15.dp)
             ) {
-                DiplomSmallItemButton(
+                ElisaSmallItemButton(
                     textButton = "Недельный график поставки готовой продукции",
                     onButtonClick = { onItemClick(RouteSheetDestination.WeekScheduleListScreen) },
                 )
-                DiplomSmallItemButton(
+                ElisaSmallItemButton(
                     textButton = "Перечень доступных транспортных средств",
                     onButtonClick = { onItemClick(RouteSheetDestination.AvailableVehicleListScreen) },
                 )
-                DiplomSmallItemButton(
+                ElisaSmallItemButton(
                     textButton = "Решение задачи",
                 )
-                DiplomSmallItemButton(
+                ElisaSmallItemButton(
                     textButton = "Печать",
                 )
-                DiplomSmallItemButton(
+                ElisaSmallItemButton(
                     textButton = "Закрыть",
                     onButtonClick = onBackClick,
                 )

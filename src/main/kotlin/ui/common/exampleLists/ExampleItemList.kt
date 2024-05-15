@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import data.VehicleModel
-import ui.common.DiplomDivider
-import ui.common.DiplomItemText
+import ui.common.ElisaDivider
+import ui.common.ElisaItemText
 import util.Constant
 
 @Composable
@@ -28,39 +28,39 @@ fun ExampleItemList(
         horizontalArrangement = Arrangement.spacedBy(2.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        DiplomItemText(
+        ElisaItemText(
             text = item.fioDriver,
             textWidth = 350.dp,
         )
-        DiplomDivider(
+        ElisaDivider(
             color = color.second,
             isHorizontal = false,
         )
-        DiplomItemText(
+        ElisaItemText(
             text = item.phoneDriver,
             textWidth = 200.dp,
         )
-        DiplomDivider(
+        ElisaDivider(
             color = color.second,
             isHorizontal = false,
         )
-        DiplomItemText(
+        ElisaItemText(
             text = item.vehicleNumber,
             textWidth = 150.dp,
         )
-        DiplomDivider(
+        ElisaDivider(
             color = color.second,
             isHorizontal = false,
         )
-        DiplomItemText(
+        ElisaItemText(
             text = item.vehicleModel,
             textWidth = 300.dp,
         )
-        DiplomDivider(
+        ElisaDivider(
             color = color.second,
             isHorizontal = false,
         )
-        DiplomItemText(
+        ElisaItemText(
             text = item.routeType.toString(),
             textWidth = 200.dp,
         )

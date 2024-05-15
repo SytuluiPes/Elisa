@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun DiplomDivider(
+fun ElisaDivider(
     color: Color = Color.White,
     size: Dp = 2.dp,
     isHorizontal: Boolean = true,

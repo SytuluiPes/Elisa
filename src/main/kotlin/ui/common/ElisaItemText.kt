@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
@@ -14,17 +12,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun DiplomHeaderText(
+fun ElisaItemText(
     text: String,
     textWidth: Dp,
-    fontSize: TextUnit = 14.sp,
+    fontSize: TextUnit = 12.sp,
 ) {
     Text(
         modifier = Modifier.padding(2.dp).width(textWidth),
         text = text,
         fontSize = fontSize,
-        textAlign = TextAlign.Center,
-        fontWeight = FontWeight.W600,
-        color = Color.White,
+        textAlign = TextAlign.Start,
     )
 }

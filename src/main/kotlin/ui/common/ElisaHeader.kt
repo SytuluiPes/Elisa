@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun DiplomHeader(
+fun ElisaHeader(
     text: String,
     isMain: Boolean = true,
 ) {

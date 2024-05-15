@@ -19,7 +19,7 @@ class App {
                 onCloseRequest = ::exitApplication,
                 state = windowSize,
                 resizable = false,
-                title = "Diplom",
+                title = "Elisa",
             ) {
                 NavRoot.init()
             }

@@ -13,20 +13,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun DiplomBigItemButton(
+fun ElisaSmallItemButton(
     textButton: String,
     onButtonClick: () -> Unit = {},
 ) {
     TextButton(
         modifier = Modifier
-            .size(width = 300.dp, height = 150.dp)
-            .border(1.dp, Color.Companion.Gray, RoundedCornerShape(15.dp)),
+            .size(width = 200.dp, height = 80.dp)
+            .border(1.dp, Color.Companion.Gray, RoundedCornerShape(40.dp)),
 
         onClick = onButtonClick,
         content = {
             Text(
                 text = textButton,
-                fontSize = 18.sp,
+                fontSize = 12.sp,
                 color = Color.DarkGray,
                 textAlign = TextAlign.Center,
             )

@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import navigation.MainScreenDestination
-import ui.common.DiplomDivider
-import ui.common.DiplomHeader
-import ui.common.buttons.DiplomBigItemButton
+import ui.common.ElisaDivider
+import ui.common.ElisaHeader
+import ui.common.buttons.ElisaBigItemButton
 
 @OptIn(ExperimentalLayoutApi::class)
 @NonRestartableComposable
@@ -25,10 +25,10 @@ fun MainScreen(
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
         Spacer(Modifier.size(10.dp))
-        DiplomHeader(
+        ElisaHeader(
             text = "Главноe меню",
         )
-        DiplomDivider()
+        ElisaDivider()
         Spacer(Modifier.size(20.dp))
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(50.dp),
@@ -36,19 +36,19 @@ fun MainScreen(
             maxItemsInEachRow = 2,
 
             ) {
-            DiplomBigItemButton(
+            ElisaBigItemButton(
                 textButton = "Формирование маршрутного листа движения транспортного средства",
                 onButtonClick = { onItemClick(MainScreenDestination.RouteSheetListScreen) },
             )
-            DiplomBigItemButton(
+            ElisaBigItemButton(
                 textButton = "Формирование месячного плана отгрузки готовой продукции",
                 onButtonClick = { onItemClick(MainScreenDestination.MonthScheduleScreen) },
             )
-            DiplomBigItemButton(
+            ElisaBigItemButton(
                 textButton = "Составление недельного графика поставки готовой продукции",
                 onButtonClick = { onItemClick(MainScreenDestination.WeekScheduleScreen) },
             )
-            DiplomBigItemButton(
+            ElisaBigItemButton(
                 textButton = "Составление отчета о выполнении месячного плана отгрузки готовой продукции",
                 onButtonClick = { onItemClick(MainScreenDestination.ReportScreen) },
             )

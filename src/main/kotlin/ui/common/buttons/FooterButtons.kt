@@ -18,11 +18,11 @@ fun FooterButtons(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceAround,
     ) {
-        DiplomSmallItemButton(
+        ElisaSmallItemButton(
             textButton = "Добавить",
             onButtonClick = onAddClick,
         )
-        DiplomSmallItemButton(
+        ElisaSmallItemButton(
             textButton = "Закрыть",
             onButtonClick = onCloseClick,
         )

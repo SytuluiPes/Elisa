@@ -12,4 +12,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "diplom"
+rootProject.name = "Elisa"

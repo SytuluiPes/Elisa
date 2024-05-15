@@ -8,24 +8,27 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun DiplomButton(
+fun ElisaBigItemButton(
     textButton: String,
     onButtonClick: () -> Unit = {},
 ) {
     TextButton(
         modifier = Modifier
-            .size(width = 150.dp, height = 60.dp)
-            .border(1.dp, Color.Black, RoundedCornerShape(15.dp)),
+            .size(width = 300.dp, height = 150.dp)
+            .border(1.dp, Color.Companion.Gray, RoundedCornerShape(15.dp)),
+
         onClick = onButtonClick,
         content = {
             Text(
                 text = textButton,
-                fontSize = 20.sp,
-                color = Color.Black
+                fontSize = 18.sp,
+                color = Color.DarkGray,
+                textAlign = TextAlign.Center,
             )
         },
     )

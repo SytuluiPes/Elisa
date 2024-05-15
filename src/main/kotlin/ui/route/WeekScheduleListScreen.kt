@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import ui.common.DiplomHeader
+import ui.common.ElisaHeader
 import ui.common.TextFieldItem
 import ui.common.buttons.FooterButtons
 import ui.common.exampleLists.AvailableVehicleList
@@ -38,7 +38,7 @@ fun WeekScheduleListScreen(
         verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
         Spacer(Modifier.size(3.dp))
-        DiplomHeader(
+        ElisaHeader(
             text = "Перечень доступных транспортных средств",
             isMain = false,
         )

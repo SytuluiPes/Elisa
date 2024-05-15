@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ui.common.buttons.DiplomButton
+import ui.common.buttons.ElisaButton
 
 @Composable
 fun AuthorizationScreen(
@@ -45,7 +45,7 @@ fun AuthorizationScreen(
             onValueChange = { pass = it },
         )
         Spacer(Modifier.size(30.dp))
-        DiplomButton(
+        ElisaButton(
             textButton = "Войти",
             onButtonClick = {
                 borderColor = if (login.isEmpty() || pass.isEmpty()) Color.Red else null
