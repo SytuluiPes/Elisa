@@ -2,8 +2,11 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import androidx.sqlite.SQLiteConnection
 import navigation.NavRoot
 import util.Constant
+
+lateinit var databaseConnection: SQLiteConnection
 
 class App {
     init {
@@ -16,7 +19,10 @@ class App {
             )
 
             Window(
-                onCloseRequest = ::exitApplication,
+                onCloseRequest = {
+                    databaseConnection.close()
+                    exitApplication()
+                },
                 state = windowSize,
                 resizable = false,
                 title = "Elisa",
@@ -28,5 +34,6 @@ class App {
 }
 
 fun main() {
+//    DbAdapter.init()
     App()
 }

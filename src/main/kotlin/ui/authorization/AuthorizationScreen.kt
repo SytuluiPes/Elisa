@@ -1,5 +1,6 @@
 package ui.authorization
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -10,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ui.common.buttons.ElisaButton
+import util.ElisaColor
 
 @Composable
 fun AuthorizationScreen(
@@ -18,17 +20,20 @@ fun AuthorizationScreen(
     var login: String by remember { mutableStateOf("") }
     var pass: String by remember { mutableStateOf("") }
 
-    var borderColor: Color? by remember { mutableStateOf(null) }
+    var borderColor: Color by remember { mutableStateOf(ElisaColor.White) }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(ElisaColor.Gray),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
             text = "Авторизация",
-            fontWeight = FontWeight.W400,
-            fontSize = 32.sp,
+            fontWeight = FontWeight.W700,
+            fontSize = 42.sp,
+            color = ElisaColor.White,
         )
         Spacer(Modifier.size(60.dp))
         AutorizationItem(
@@ -48,8 +53,8 @@ fun AuthorizationScreen(
         ElisaButton(
             textButton = "Войти",
             onButtonClick = {
-                borderColor = if (login.isEmpty() || pass.isEmpty()) Color.Red else null
-                if (borderColor != Color.Red) {
+                borderColor = if (login.isEmpty() || pass.isEmpty()) ElisaColor.Raspberry else ElisaColor.White
+                if (borderColor != ElisaColor.Raspberry) {
                     onButtonClick()
                 }
             },
