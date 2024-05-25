@@ -1,10 +1,8 @@
 package ui.route
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,101 +16,103 @@ import data.VehicleModel.RouteType.Documents
 import ui.common.ElisaDivider
 import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
-import ui.common.TextFieldItem
+import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
-import ui.common.exampleLists.AvailableVehicleList
 import util.Constant
+import util.ElisaColor
+
+private val exampleVehicleList = mutableStateListOf(
+    VehicleModel(
+        fioDriver = "Ковалев Артем Александрович",
+        phoneDriver = "89203334411",
+        vehicleNumber = "M316BA",
+        vehicleModel = "Hyndai Salaris",
+        routeType = Documents,
+    ),
+    VehicleModel(
+        fioDriver = "Евгеньев Александр Викторович",
+        phoneDriver = "89212092411",
+        vehicleNumber = "А321TA",
+        vehicleModel = "Scania 2011",
+        routeType = Cargo,
+    ),
+    VehicleModel(
+        fioDriver = "Ковалев Артем Александрович",
+        phoneDriver = "89203334411",
+        vehicleNumber = "M316BA",
+        vehicleModel = "Hyndai Salaris",
+        routeType = Documents,
+    ),
+    VehicleModel(
+        fioDriver = "Евгеньев Александр Викторович",
+        phoneDriver = "89212092411",
+        vehicleNumber = "А321TA",
+        vehicleModel = "Scania 2011",
+        routeType = Cargo,
+    ),
+    VehicleModel(
+        fioDriver = "Ковалев Артем Александрович",
+        phoneDriver = "89203334411",
+        vehicleNumber = "M316BA",
+        vehicleModel = "Hyndai Salaris",
+        routeType = Documents,
+    ),
+    VehicleModel(
+        fioDriver = "Евгеньев Александр Викторович",
+        phoneDriver = "89212092411",
+        vehicleNumber = "А321TA",
+        vehicleModel = "Scania 2011",
+        routeType = Cargo,
+    ),
+    VehicleModel(
+        fioDriver = "Ковалев Артем Александрович",
+        phoneDriver = "89203334411",
+        vehicleNumber = "M316BA",
+        vehicleModel = "Hyndai Salaris",
+        routeType = Documents,
+    ),
+    VehicleModel(
+        fioDriver = "Евгеньев Александр Викторович",
+        phoneDriver = "89212092411",
+        vehicleNumber = "А321TA",
+        vehicleModel = "Scania 2011",
+        routeType = Cargo,
+    ),
+    VehicleModel(
+        fioDriver = "Ковалев Артем Александрович",
+        phoneDriver = "89203334411",
+        vehicleNumber = "M316BA",
+        vehicleModel = "Hyndai Salaris",
+        routeType = Documents,
+    ),
+    VehicleModel(
+        fioDriver = "Евгеньев Александр Викторович",
+        phoneDriver = "89212092411",
+        vehicleNumber = "А321TA",
+        vehicleModel = "Scania 2011",
+        routeType = Cargo,
+    ),
+    VehicleModel(
+        fioDriver = "Ковалев Артем Александрович",
+        phoneDriver = "89203334411",
+        vehicleNumber = "M316BA",
+        vehicleModel = "Hyndai Salaris",
+        routeType = Documents,
+    ),
+    VehicleModel(
+        fioDriver = "Евгеньев Александр Викторович",
+        phoneDriver = "89212092411",
+        vehicleNumber = "А321TA",
+        vehicleModel = "Scania 2011",
+        routeType = Cargo,
+    )
+)
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AvailableVehicleScreen(
     onBackClick: () -> Unit,
-    itemList: MutableList<VehicleModel> = mutableStateListOf(
-        VehicleModel(
-            fioDriver = "Ковалев Артем Александрович",
-            phoneDriver = "89203334411",
-            vehicleNumber = "M316BA",
-            vehicleModel = "Hyndai Salaris",
-            routeType = Documents,
-        ),
-        VehicleModel(
-            fioDriver = "Евгеньев Александр Викторович",
-            phoneDriver = "89212092411",
-            vehicleNumber = "А321TA",
-            vehicleModel = "Scania 2011",
-            routeType = Cargo,
-        ),
-        VehicleModel(
-            fioDriver = "Ковалев Артем Александрович",
-            phoneDriver = "89203334411",
-            vehicleNumber = "M316BA",
-            vehicleModel = "Hyndai Salaris",
-            routeType = Documents,
-        ),
-        VehicleModel(
-            fioDriver = "Евгеньев Александр Викторович",
-            phoneDriver = "89212092411",
-            vehicleNumber = "А321TA",
-            vehicleModel = "Scania 2011",
-            routeType = Cargo,
-        ),
-        VehicleModel(
-            fioDriver = "Ковалев Артем Александрович",
-            phoneDriver = "89203334411",
-            vehicleNumber = "M316BA",
-            vehicleModel = "Hyndai Salaris",
-            routeType = Documents,
-        ),
-        VehicleModel(
-            fioDriver = "Евгеньев Александр Викторович",
-            phoneDriver = "89212092411",
-            vehicleNumber = "А321TA",
-            vehicleModel = "Scania 2011",
-            routeType = Cargo,
-        ),
-        VehicleModel(
-            fioDriver = "Ковалев Артем Александрович",
-            phoneDriver = "89203334411",
-            vehicleNumber = "M316BA",
-            vehicleModel = "Hyndai Salaris",
-            routeType = Documents,
-        ),
-        VehicleModel(
-            fioDriver = "Евгеньев Александр Викторович",
-            phoneDriver = "89212092411",
-            vehicleNumber = "А321TA",
-            vehicleModel = "Scania 2011",
-            routeType = Cargo,
-        ),
-        VehicleModel(
-            fioDriver = "Ковалев Артем Александрович",
-            phoneDriver = "89203334411",
-            vehicleNumber = "M316BA",
-            vehicleModel = "Hyndai Salaris",
-            routeType = Documents,
-        ),
-        VehicleModel(
-            fioDriver = "Евгеньев Александр Викторович",
-            phoneDriver = "89212092411",
-            vehicleNumber = "А321TA",
-            vehicleModel = "Scania 2011",
-            routeType = Cargo,
-        ),
-        VehicleModel(
-            fioDriver = "Ковалев Артем Александрович",
-            phoneDriver = "89203334411",
-            vehicleNumber = "M316BA",
-            vehicleModel = "Hyndai Salaris",
-            routeType = Documents,
-        ),
-        VehicleModel(
-            fioDriver = "Евгеньев Александр Викторович",
-            phoneDriver = "89212092411",
-            vehicleNumber = "А321TA",
-            vehicleModel = "Scania 2011",
-            routeType = Cargo,
-        )
-    ),
+    itemList: MutableList<VehicleModel> = exampleVehicleList,
 ) {
     var reset by remember { mutableStateOf(false) }
     var fio by remember(reset) { mutableStateOf("") }
@@ -133,7 +133,7 @@ fun AvailableVehicleScreen(
     Column(
         modifier = Modifier
             .size(width = Constant.WINDOW_WIDTH, height = Constant.WINDOW_HEIGHT)
-            .background(Color(0xFFE8E8E8))
+            .background(ElisaColor.MainBackground)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -186,59 +186,68 @@ fun AvailableVehicleScreen(
                 textWidth = 200.dp,
             )
         }
-        AvailableVehicleList(itemList)
-        FlowRow(
+        VehicleTable(itemList)
+        Row(
             modifier = Modifier
-                .padding(10.dp)
-                .height(140.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-            maxItemsInEachRow = 3,
+                .fillMaxSize()
+                .padding(10.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            TextFieldItem(
-                text = fio,
-                label = "ФИО водителя:",
-                onValueChange = { fio = it }
-            )
-            TextFieldItem(
-                text = phoneNumber,
-                label = "Телефон водителя:",
-                onValueChange = { phoneNumber = it }
-            )
-            TextFieldItem(
-                text = carNumber,
-                label = "Номер т-с:",
-                onValueChange = { carNumber = it }
-            )
-            TextFieldItem(
-                text = makeAndModelCar,
-                label = "Марка и модель т-с:",
-                onValueChange = { makeAndModelCar = it }
-            )
-            TextFieldItem(
-                text = typeTransportation,
-                label = "Виды перевозок:",
-                onValueChange = { typeTransportation = it }
+            FlowRow(
+                modifier = Modifier
+                    .height(160.dp)
+                    .width(1000.dp)
+                    .border(BorderStroke(0.5.dp, color = ElisaColor.Black), RoundedCornerShape(20))
+                    .padding(10.dp),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalArrangement = Arrangement.SpaceAround,
+                maxItemsInEachRow = 3,
+            ) {
+                ElisaTextField(
+                    text = fio,
+                    label = "ФИО водителя",
+                    onValueChange = { fio = it }
+                )
+                ElisaTextField(
+                    text = phoneNumber,
+                    label = "Телефон водителя",
+                    onValueChange = { phoneNumber = it }
+                )
+                ElisaTextField(
+                    text = carNumber,
+                    label = "Номер автомобиля",
+                    onValueChange = { carNumber = it }
+                )
+                ElisaTextField(
+                    text = makeAndModelCar,
+                    label = "Марка автомобиля",
+                    onValueChange = { makeAndModelCar = it }
+                )
+                ElisaTextField(
+                    text = typeTransportation,
+                    label = "Назначение",
+                    onValueChange = { typeTransportation = it }
+                )
+            }
+            FooterButtons(
+                onAddClick = {
+                    if (isFilled) {
+                        itemList.add(
+                            VehicleModel(
+                                fioDriver = fio,
+                                phoneDriver = phoneNumber,
+                                vehicleNumber = carNumber,
+                                vehicleModel = makeAndModelCar,
+                                routeType = typeTransportation.asRouteType(),
+                            )
+                        )
+                        reset = true
+                    }
+                },
+                onDeleteClick = {},
+                onCloseClick = onBackClick,
             )
         }
-        FooterButtons(
-            onAddClick = {
-                if (isFilled) {
-                    itemList.add(
-                        VehicleModel(
-                            fioDriver = fio,
-                            phoneDriver = phoneNumber,
-                            vehicleNumber = carNumber,
-                            vehicleModel = makeAndModelCar,
-                            routeType = typeTransportation.asRouteType(),
-                        )
-                    )
-                    reset = true
-                }
-            },
-            onCloseClick = onBackClick,
-        )
     }
 }
 

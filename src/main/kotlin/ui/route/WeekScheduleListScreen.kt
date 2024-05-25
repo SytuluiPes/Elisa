@@ -1,107 +1,213 @@
 package ui.route
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import data.WeekScheduleItemModel
+import ui.common.ElisaDivider
 import ui.common.ElisaHeader
-import ui.common.TextFieldItem
+import ui.common.ElisaHeaderText
+import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
-import ui.common.exampleLists.AvailableVehicleList
+import util.Constant
+import util.ElisaColor
+
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun WeekScheduleListScreen(
     onBackClick: () -> Unit,
+    itemList: MutableList<WeekScheduleItemModel> = mutableListOf(),
 ) {
     var customerFio by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
     var productName by remember { mutableStateOf("") }
-    var units by remember { mutableStateOf("") }
+    var unit by remember { mutableStateOf("") }
     var count by remember { mutableStateOf("") }
     var total by remember { mutableStateOf("") }
     var dateDelivery by remember { mutableStateOf("") }
-    var typeTransportation by remember { mutableStateOf("") }
+    var typeDelivery by remember { mutableStateOf("") }
 
+    val fieldWidthList = listOf(60.dp, 150.dp, 250.dp, 120.dp, 150.dp, 80.dp, 80.dp, 90.dp, 120.dp, 140.dp)
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFE8E8E8))
+            .size(width = Constant.WINDOW_WIDTH, height = Constant.WINDOW_HEIGHT)
+            .background(ElisaColor.MainBackground)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
-        Spacer(Modifier.size(3.dp))
+        Spacer(Modifier.size(5.dp))
         ElisaHeader(
-            text = "Перечень доступных транспортных средств",
+            text = "Недельный график поставки готовой продукции",
             isMain = false,
         )
-        AvailableVehicleList()
-        FlowRow(
+        Spacer(Modifier.size(2.dp))
+        Row(
             modifier = Modifier
-                .padding(10.dp)
-                .height(210.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-            maxItemsInEachRow = 3,
+                .padding(start = 10.dp, end = 10.dp, top = 10.dp)
+                .height(60.dp)
+                .width(Constant.WINDOW_WIDTH - 20.dp)
+                .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
+                .background(Color(0xFF464859)),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
-            TextFieldItem(
-                text = customerFio,
-                label = "Заказчик:",
-                onValueChange = { customerFio = it }
+            ElisaHeaderText(
+                text = "№ п/п",
+                textWidth = fieldWidthList[0],
             )
-            TextFieldItem(
-                text = address,
-                label = "Адрес:",
-                onValueChange = { address = it }
+            ElisaDivider(
+                isHorizontal = false,
             )
-            TextFieldItem(
-                text = phoneNumber,
-                label = "Телефон заказчика:",
-                onValueChange = { phoneNumber = it }
+            ElisaHeaderText(
+                text = "Заказчик",
+                textWidth = fieldWidthList[1],
             )
-            TextFieldItem(
-                text = productName,
-                label = "Наименование продукции:",
-                onValueChange = { productName = it }
+            ElisaDivider(
+                isHorizontal = false,
             )
-            TextFieldItem(
-                text = units,
-                label = "Ед.изм.:",
-                onValueChange = { units = it }
+            ElisaHeaderText(
+                text = "Адрес",
+                textWidth = fieldWidthList[2],
             )
-            TextFieldItem(
-                text = count,
-                label = "Кол-во:",
-                onValueChange = { count = it }
+            ElisaDivider(
+                isHorizontal = false,
             )
-            TextFieldItem(
-                text = total,
-                label = "Стоимость продукции:",
-                onValueChange = { total = it }
+            ElisaHeaderText(
+                text = "Телефон заказчика",
+                textWidth = fieldWidthList[3],
             )
-            TextFieldItem(
-                text = dateDelivery,
-                label = "Срок поставки:",
-                onValueChange = { dateDelivery = it }
+            ElisaDivider(
+                isHorizontal = false,
             )
-            TextFieldItem(
-                text = typeTransportation,
-                label = "Тип перевозки:",
-                onValueChange = { typeTransportation = it }
+            ElisaHeaderText(
+                text = "Наименование продукции",
+                textWidth = fieldWidthList[4],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Ед. изм.",
+                textWidth = fieldWidthList[5],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Кол-во",
+                textWidth = fieldWidthList[6],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Суммарная стоимость продукции",
+                textWidth = fieldWidthList[7],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Срок поставки",
+                textWidth = fieldWidthList[8],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Тип перевозки",
+                textWidth = fieldWidthList[9],
             )
         }
-        FooterButtons(
-            //TODO()
-            onAddClick = {},
-            onCloseClick = onBackClick,
-        )
+        WeekScheduleTable(fieldWidthList = fieldWidthList)
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(10.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            FlowRow(
+                modifier = Modifier
+                    .height(240.dp)
+                    .width(1000.dp)
+                    .border(BorderStroke(0.5.dp, color = ElisaColor.Black), RoundedCornerShape(20))
+                    .padding(10.dp),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalArrangement = Arrangement.SpaceAround,
+                maxItemsInEachRow = 3,
+            ) {
+                ElisaTextField(
+                    text = customerFio,
+                    label = "Заказчик",
+                    onValueChange = { customerFio = it }
+                )
+                ElisaTextField(
+                    text = address,
+                    label = "Адрес",
+                    onValueChange = { address = it }
+                )
+                ElisaTextField(
+                    text = phoneNumber,
+                    label = "Телефон",
+                    onValueChange = { phoneNumber = it }
+                )
+                ElisaTextField(
+                    text = productName,
+                    label = "Наименование продукции",
+                    onValueChange = { productName = it }
+                )
+                ElisaTextField(
+                    text = unit,
+                    label = "Ед. изм.",
+                    onValueChange = { unit = it }
+                )
+                ElisaTextField(
+                    text = count,
+                    label = "Кол-во",
+                    onValueChange = { count = it }
+                )
+                ElisaTextField(
+                    text = total,
+                    label = "Суммарная стоимость продукции",
+                    onValueChange = { total = it }
+                )
+                ElisaTextField(
+                    text = dateDelivery,
+                    label = "Срок поставки",
+                    onValueChange = { dateDelivery = it }
+                )
+                ElisaTextField(
+                    text = typeDelivery,
+                    label = "Тип перевозки",
+                    onValueChange = { typeDelivery = it }
+                )
+            }
+            FooterButtons(
+                onAddClick = {
+//                    if (isFilled) {
+//                        itemList.add(
+//                            VehicleModel(
+//                                fioDriver = fio,
+//                                phoneDriver = phoneNumber,
+//                                vehicleNumber = carNumber,
+//                                vehicleModel = makeAndModelCar,
+//                                routeType = typeTransportation.asRouteType(),
+//                            )
+//                        )
+//                        reset = true
+//                    }
+                },
+                onDeleteClick = {},
+                onCloseClick = onBackClick,
+            )
+        }
     }
 }

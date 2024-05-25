@@ -36,14 +36,14 @@ fun AuthorizationScreen(
             color = ElisaColor.White,
         )
         Spacer(Modifier.size(60.dp))
-        AutorizationItem(
+        AuthorizationTextItem(
             label = "Логин:",
             text = login,
             borderColor = borderColor,
             onValueChange = { login = it },
         )
         Spacer(Modifier.size(30.dp))
-        AutorizationItem(
+        AuthorizationTextItem(
             label = "Пароль:",
             text = pass,
             borderColor = borderColor,

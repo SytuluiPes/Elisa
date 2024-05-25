@@ -19,7 +19,7 @@ fun ElisaSmallItemButton(
 ) {
     TextButton(
         modifier = Modifier
-            .size(width = 200.dp, height = 80.dp)
+            .size(width = 220.dp, height = 70.dp)
             .border(1.dp, Color.Companion.Gray, RoundedCornerShape(40.dp)),
 
         onClick = onButtonClick,

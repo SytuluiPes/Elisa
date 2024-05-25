@@ -1,6 +1,5 @@
-package ui.common.exampleLists
+package ui.route
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,24 +13,23 @@ import data.VehicleModel
 import util.Constant
 
 @Composable
-fun AvailableVehicleList(
+fun VehicleTable(
     itemList: List<VehicleModel> = emptyList(),
 ) {
     LazyColumn(
         modifier = Modifier
             .padding(start = 10.dp, end = 10.dp, bottom = 10.dp)
-            .height(400.dp)
+            .height(350.dp)
             .width(Constant.WINDOW_WIDTH - 20.dp)
             .border(
                 width = 0.5.dp,
                 color = Color.Black,
-            )
-            .background(color = Color.Gray),
+            ),
         userScrollEnabled = true,
     ) {
         itemList.forEachIndexed { index, item ->
             item {
-                ExampleItemList(
+                VehicleItemList(
                     item = item,
                     color = if (index % 2 == 0)
                         Pair(Color(0xFFFFFFFF), Color(0xFFF0F3FF))

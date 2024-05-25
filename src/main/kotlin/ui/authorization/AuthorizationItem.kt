@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import util.ElisaColor
 
 @Composable
-fun AutorizationItem(
+fun AuthorizationTextItem(
     label: String,
     text: String,
     borderColor: Color = Color.White,

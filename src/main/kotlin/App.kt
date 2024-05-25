@@ -3,7 +3,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import androidx.sqlite.SQLiteConnection
-import navigation.NavRoot
+import navigation.NavRouteSheetListScreen
 import util.Constant
 
 lateinit var databaseConnection: SQLiteConnection
@@ -27,7 +27,7 @@ class App {
                 resizable = false,
                 title = "Elisa",
             ) {
-                NavRoot.init()
+                NavRouteSheetListScreen.init()
             }
         }
     }

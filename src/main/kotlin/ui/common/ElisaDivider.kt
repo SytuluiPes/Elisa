@@ -1,5 +1,7 @@
 package ui.common
 
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Divider
@@ -8,19 +10,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import util.ElisaColor
 
 @Composable
 fun ElisaDivider(
-    color: Color = Color.White,
+    color: Color = ElisaColor.White,
     size: Dp = 2.dp,
     isHorizontal: Boolean = true,
 ) {
     Divider(
         modifier = if (!isHorizontal) {
             Modifier
-                .height(40.dp)
+                .fillMaxHeight()
                 .width(1.dp)
-        } else Modifier,
+        } else Modifier
+            .fillMaxWidth()
+            .height(1.dp),
         color = color,
         thickness = size,
     )
