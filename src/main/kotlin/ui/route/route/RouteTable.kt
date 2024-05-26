@@ -1,4 +1,4 @@
-package ui.route
+package ui.route.route
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxHeight

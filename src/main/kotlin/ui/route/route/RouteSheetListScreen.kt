@@ -1,4 +1,4 @@
-package ui.route
+package ui.route.route
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,6 +15,9 @@ import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
 import ui.common.buttons.ElisaSmallItemButton
 import util.Constant
+import util.Constant.AVAILABLE_CAR
+import util.Constant.ROUTE_TASK
+import util.Constant.WEEK_TASK
 import util.ElisaColor
 
 @Composable
@@ -30,7 +33,7 @@ fun RouteSheetListScreen(
     ) {
         Spacer(Modifier.size(15.dp))
         ElisaHeader(
-            text = "Маршрутный лист движения транспортного средства",
+            text = ROUTE_TASK,
             isMain = false,
         )
         Spacer(Modifier.size(10.dp))
@@ -98,11 +101,11 @@ fun RouteSheetListScreen(
             horizontalArrangement = Arrangement.SpaceAround,
             ) {
                 ElisaSmallItemButton(
-                    textButton = "Недельный график поставки готовой продукции",
+                    textButton = WEEK_TASK,
                     onButtonClick = { onItemClick(RouteSheetDestination.WeekScheduleListScreen) },
                 )
                 ElisaSmallItemButton(
-                    textButton = "Перечень доступных транспортных средств",
+                    textButton = AVAILABLE_CAR,
                     onButtonClick = { onItemClick(RouteSheetDestination.AvailableVehicleListScreen) },
                 )
                 ElisaSmallItemButton(

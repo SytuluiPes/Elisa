@@ -1,4 +1,4 @@
-package ui.route
+package ui.route.vehicle
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height

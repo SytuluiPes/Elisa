@@ -1,4 +1,4 @@
-package ui.route
+package ui.route.weekSchedule
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -16,6 +16,7 @@ import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
 import util.Constant
+import util.Constant.WEEK_TASK
 import util.ElisaColor
 
 
@@ -45,7 +46,7 @@ fun WeekScheduleListScreen(
     ) {
         Spacer(Modifier.size(5.dp))
         ElisaHeader(
-            text = "Недельный график поставки готовой продукции",
+            text = WEEK_TASK,
             isMain = false,
         )
         Spacer(Modifier.size(2.dp))

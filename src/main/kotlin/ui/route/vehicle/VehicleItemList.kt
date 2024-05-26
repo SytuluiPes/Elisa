@@ -1,4 +1,4 @@
-package ui.route
+package ui.route.vehicle
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

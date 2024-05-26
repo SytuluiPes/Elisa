@@ -1,4 +1,4 @@
-package ui.route
+package ui.route.vehicle
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -19,6 +19,7 @@ import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
 import util.Constant
+import util.Constant.AVAILABLE_CAR
 import util.ElisaColor
 
 private val exampleVehicleList = mutableStateListOf(
@@ -141,7 +142,7 @@ fun AvailableVehicleScreen(
     ) {
         Spacer(Modifier.size(5.dp))
         ElisaHeader(
-            text = "Перечень доступных транспортных средств",
+            text = AVAILABLE_CAR,
             isMain = false,
         )
         Spacer(Modifier.size(2.dp))
