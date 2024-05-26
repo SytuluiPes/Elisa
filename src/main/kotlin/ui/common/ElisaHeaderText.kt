@@ -20,7 +20,9 @@ fun ElisaHeaderText(
     fontSize: TextUnit = 14.sp,
 ) {
     Text(
-        modifier = Modifier.padding(2.dp).width(textWidth),
+        modifier = Modifier
+            .width(textWidth)
+            .padding(2.dp),
         text = text,
         fontSize = fontSize,
         textAlign = TextAlign.Center,

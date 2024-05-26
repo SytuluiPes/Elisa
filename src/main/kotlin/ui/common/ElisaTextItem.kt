@@ -21,7 +21,9 @@ fun ElisaTextItem(
     fontSize: TextUnit = 12.sp,
 ) {
     Text(
-        modifier = Modifier.padding(2.dp).width(textWidth)
+        modifier = Modifier
+            .width(textWidth)
+            .padding(2.dp)
             .background(Color(red = Random.nextFloat(), green = Random.nextFloat(), blue = Random.nextFloat())),
         text = text,
         fontSize = fontSize,

@@ -35,10 +35,10 @@ fun WeekScheduleListScreen(
     var dateDelivery by remember { mutableStateOf("") }
     var typeDelivery by remember { mutableStateOf("") }
 
-    val fieldWidthList = listOf(60.dp, 150.dp, 250.dp, 120.dp, 150.dp, 80.dp, 80.dp, 90.dp, 120.dp, 140.dp)
+    val fieldWidthList = listOf(60.dp, 150.dp, 250.dp, 120.dp, 150.dp, 80.dp, 80.dp, 110.dp, 120.dp, 140.dp)
     Column(
         modifier = Modifier
-            .size(width = Constant.WINDOW_WIDTH, height = Constant.WINDOW_HEIGHT)
+            .size(width = Constant.WINDOW_WIDTH - 20.dp, height = Constant.WINDOW_HEIGHT)
             .background(ElisaColor.MainBackground)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -53,11 +53,10 @@ fun WeekScheduleListScreen(
             modifier = Modifier
                 .padding(start = 10.dp, end = 10.dp, top = 10.dp)
                 .height(60.dp)
-                .width(Constant.WINDOW_WIDTH - 20.dp)
+                .fillMaxWidth()
                 .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
                 .background(Color(0xFF464859)),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
             ElisaHeaderText(
                 text = "№ п/п",

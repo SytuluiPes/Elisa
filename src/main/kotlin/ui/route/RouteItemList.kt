@@ -2,7 +2,10 @@ package ui.route
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,8 +29,7 @@ fun RouteItemList(
             .height(item.productList.size * 40.dp)
             .width(Constant.WINDOW_WIDTH - 20.dp)
             .clickable {}
-            .background(color = color.first)
-            .padding(5.dp, 5.dp, 5.dp, 0.dp),
+            .background(color = color.first),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         ElisaTextItem(
@@ -49,13 +51,13 @@ fun RouteItemList(
         Column(
             modifier = Modifier
                 .height(item.productList.size * 40.dp)
-                .width(550.dp),
+                .width(fieldWidthList[2] + fieldWidthList[3] + fieldWidthList[4] + 3.dp),
         ) {
             for (productItem in item.productList) {
                 Row(
                     modifier = Modifier
                         .height(40.dp)
-                        .width(550.dp),
+                        .width(fieldWidthList[2] + fieldWidthList[3] + fieldWidthList[4] + 2.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     ElisaTextItem(
@@ -77,10 +79,6 @@ fun RouteItemList(
                     ElisaTextItem(
                         text = productItem.count.toString(),
                         textWidth = fieldWidthList[4],
-                    )
-                    ElisaDivider(
-                        color = color.second,
-                        isHorizontal = false,
                     )
                 }
                 ElisaDivider(

@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import data.VehicleModel
 import util.Constant
@@ -15,6 +16,7 @@ import util.Constant
 @Composable
 fun VehicleTable(
     itemList: List<VehicleModel> = emptyList(),
+    fieldWidthList: List<Dp>,
 ) {
     LazyColumn(
         modifier = Modifier
@@ -35,6 +37,7 @@ fun VehicleTable(
                         Pair(Color(0xFFFFFFFF), Color(0xFFF0F3FF))
                     else
                         Pair(Color(0xFFF0F3FF), Color(0xFFFFFFFF)),
+                    fieldWidthList = fieldWidthList,
                 )
             }
         }

@@ -64,7 +64,8 @@ fun WeekScheduleItemList(
         Column(
             modifier = Modifier
                 .height(item.productList.size * 40.dp)
-                .width(fieldWidthList[4] + fieldWidthList[5] + fieldWidthList[6] + fieldWidthList[7]),
+                .width(fieldWidthList[4] + fieldWidthList[5] + fieldWidthList[6] + fieldWidthList[7] + 3.dp)
+                .background(Color.Red),
         ) {
             for (productItem in item.productList) {
                 Row(
@@ -100,10 +101,6 @@ fun WeekScheduleItemList(
                     ElisaTextItem(
                         text = productItem.total.toString(),
                         textWidth = fieldWidthList[7],
-                    )
-                    ElisaDivider(
-                        color = color.second,
-                        isHorizontal = false,
                     )
                 }
                 ElisaDivider(

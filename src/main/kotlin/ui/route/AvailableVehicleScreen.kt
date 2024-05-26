@@ -130,9 +130,11 @@ fun AvailableVehicleScreen(
         }
     }
 
+    val fieldWidthList = listOf(350.dp, 200.dp, 150.dp, 300.dp, 200.dp)
+
     Column(
         modifier = Modifier
-            .size(width = Constant.WINDOW_WIDTH, height = Constant.WINDOW_HEIGHT)
+            .size(width = Constant.WINDOW_WIDTH - 20.dp, height = Constant.WINDOW_HEIGHT)
             .background(ElisaColor.MainBackground)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -147,11 +149,10 @@ fun AvailableVehicleScreen(
             modifier = Modifier
                 .padding(start = 10.dp, end = 10.dp, top = 10.dp)
                 .height(60.dp)
-                .width(Constant.WINDOW_WIDTH - 20.dp)
+                .fillMaxWidth()
                 .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
                 .background(Color(0xFF464859)),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
             ElisaHeaderText(
                 text = "ФИО водителя",
@@ -186,7 +187,7 @@ fun AvailableVehicleScreen(
                 textWidth = 200.dp,
             )
         }
-        VehicleTable(itemList)
+        VehicleTable(itemList, fieldWidthList)
         Row(
             modifier = Modifier
                 .fillMaxSize()
