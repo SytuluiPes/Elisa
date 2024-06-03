@@ -9,12 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import data.WeekScheduleItemModel
 import ui.common.ElisaDivider
 import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
+import ui.route.TableRouteModel
 import util.Constant
 import util.Constant.WEEK_TASK
 import util.ElisaColor
@@ -24,7 +24,6 @@ import util.ElisaColor
 @Composable
 fun WeekScheduleListScreen(
     onBackClick: () -> Unit,
-    itemList: MutableList<WeekScheduleItemModel> = mutableListOf(),
 ) {
     var customerFio by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
@@ -37,6 +36,45 @@ fun WeekScheduleListScreen(
     var typeDelivery by remember { mutableStateOf("") }
 
     val fieldWidthList = listOf(60.dp, 150.dp, 250.dp, 120.dp, 150.dp, 80.dp, 80.dp, 110.dp, 120.dp, 140.dp)
+    val headerList = remember {
+        listOf(
+            TableRouteModel(
+                title = "Заказчик",
+                width = 150,
+                onValueChange = { customerFio = it }
+            ),
+            TableRouteModel(
+                title = "Адрес",
+                width = 150,
+                onValueChange = { customerFio = it }
+            ),
+            TableRouteModel(
+                title = "Заказчик",
+                width = 150,
+                onValueChange = { customerFio = it }
+            ),
+            TableRouteModel(
+                title = "Заказчик",
+                width = 150,
+                onValueChange = { customerFio = it }
+            ),
+            TableRouteModel(
+                title = "Заказчик",
+                width = 150,
+                onValueChange = { customerFio = it }
+            ),
+            TableRouteModel(
+                title = "Заказчик",
+                width = 150,
+                onValueChange = { customerFio = it }
+            ),
+            TableRouteModel(
+                title = "Заказчик",
+                width = 150,
+                onValueChange = { customerFio = it }
+            )
+        )
+    }
     Column(
         modifier = Modifier
             .size(width = Constant.WINDOW_WIDTH - 20.dp, height = Constant.WINDOW_HEIGHT)

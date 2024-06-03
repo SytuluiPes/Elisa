@@ -24,6 +24,7 @@ dependencies {
     implementation(libs.androidx.sqlight)
     implementation(libs.androidx.sqlight.driver)
     implementation(compose.desktop.currentOs)
+
 }
 
 compose.desktop {
