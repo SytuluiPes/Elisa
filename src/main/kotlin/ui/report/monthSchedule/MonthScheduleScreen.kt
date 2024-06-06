@@ -1,4 +1,4 @@
-package ui.monthSchedule
+package ui.report.monthSchedule
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -13,15 +13,19 @@ import ui.common.ElisaDivider
 import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
+import ui.common.buttons.ElisaButton
 import ui.common.buttons.FooterButtons
-import ui.route.weekSchedule.WeekScheduleTable
 import util.Constant
-import util.Constant.WEEK_TASK
+import util.Constant.ADDRESS
+import util.Constant.MONTH_TASK
+import util.Constant.PRODUCT_LIST
 import util.ElisaColor
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun MonthScheduleScreen(
+    onAddAddressClick: () -> Unit,
+    onAddProductClick: () -> Unit,
     onBackClick: () -> Unit,
 ) {
     var customerFio by remember { mutableStateOf("") }
@@ -32,9 +36,8 @@ fun MonthScheduleScreen(
     var count by remember { mutableStateOf("") }
     var total by remember { mutableStateOf("") }
     var dateDelivery by remember { mutableStateOf("") }
-    var typeDelivery by remember { mutableStateOf("") }
 
-    val fieldWidthList = listOf(60.dp, 150.dp, 250.dp, 120.dp, 150.dp, 80.dp, 80.dp, 110.dp, 120.dp, 140.dp)
+    val fieldWidthList = listOf(60.dp, 190.dp, 150.dp, 80.dp, 100.dp, 200.dp, 250.dp, 110.dp, 120.dp)
     Column(
         modifier = Modifier
             .size(width = Constant.WINDOW_WIDTH - 20.dp, height = Constant.WINDOW_HEIGHT)
@@ -44,7 +47,7 @@ fun MonthScheduleScreen(
     ) {
         Spacer(Modifier.size(5.dp))
         ElisaHeader(
-            text = WEEK_TASK,
+            text = MONTH_TASK,
             isMain = false,
         )
         Spacer(Modifier.size(2.dp))
@@ -66,49 +69,49 @@ fun MonthScheduleScreen(
             )
             ElisaHeaderText(
                 text = "Наименование продукции",
-                textWidth = fieldWidthList[4],
-            )
-            ElisaDivider(
-                isHorizontal = false,
-            )
-            ElisaHeaderText(
-                text = "Ед. изм.",
-                textWidth = fieldWidthList[5],
-            )
-            ElisaDivider(
-                isHorizontal = false,
-            )
-            ElisaHeaderText(
-                text = "Кол-во",
-                textWidth = fieldWidthList[6],
-            )
-            ElisaDivider(
-                isHorizontal = false,
-            )
-            ElisaHeaderText(
-                text = "Суммарная стоимость продукции",
-                textWidth = fieldWidthList[7],
-            )
-            ElisaHeaderText(
-                text = "Заказчик",
                 textWidth = fieldWidthList[1],
             )
             ElisaDivider(
                 isHorizontal = false,
             )
             ElisaHeaderText(
-                text = "Адрес",
+                text = "Ед. изм.",
                 textWidth = fieldWidthList[2],
             )
             ElisaDivider(
                 isHorizontal = false,
             )
             ElisaHeaderText(
-                text = "Телефон заказчика",
+                text = "Кол-во",
                 textWidth = fieldWidthList[3],
             )
             ElisaDivider(
                 isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Суммарная стоимость продукции",
+                textWidth = fieldWidthList[4],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Заказчик",
+                textWidth = fieldWidthList[5],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Адрес",
+                textWidth = fieldWidthList[6],
+            )
+            ElisaDivider(
+                isHorizontal = false,
+            )
+            ElisaHeaderText(
+                text = "Телефон заказчика",
+                textWidth = fieldWidthList[7],
             )
             ElisaDivider(
                 isHorizontal = false,
@@ -120,12 +123,8 @@ fun MonthScheduleScreen(
             ElisaDivider(
                 isHorizontal = false,
             )
-            ElisaHeaderText(
-                text = "Тип перевозки",
-                textWidth = fieldWidthList[9],
-            )
         }
-        WeekScheduleTable(fieldWidthList = fieldWidthList)
+        MonthScheduleTable(fieldWidthList = fieldWidthList)
         Row(
             modifier = Modifier
                 .fillMaxSize()
@@ -147,45 +146,23 @@ fun MonthScheduleScreen(
                     label = "Заказчик",
                     onValueChange = { customerFio = it }
                 )
-                ElisaTextField(
-                    text = address,
-                    label = "Адрес",
-                    onValueChange = { address = it }
+                ElisaButton(
+                    textButton = ADDRESS,
+                    onButtonClick = onAddAddressClick,
                 )
                 ElisaTextField(
                     text = phoneNumber,
                     label = "Телефон",
                     onValueChange = { phoneNumber = it }
                 )
-                ElisaTextField(
-                    text = productName,
-                    label = "Наименование продукции",
-                    onValueChange = { productName = it }
-                )
-                ElisaTextField(
-                    text = unit,
-                    label = "Ед. изм.",
-                    onValueChange = { unit = it }
-                )
-                ElisaTextField(
-                    text = count,
-                    label = "Кол-во",
-                    onValueChange = { count = it }
-                )
-                ElisaTextField(
-                    text = total,
-                    label = "Суммарная стоимость продукции",
-                    onValueChange = { total = it }
+                ElisaButton(
+                    textButton = PRODUCT_LIST,
+                    onButtonClick = onAddProductClick,
                 )
                 ElisaTextField(
                     text = dateDelivery,
                     label = "Срок поставки",
                     onValueChange = { dateDelivery = it }
-                )
-                ElisaTextField(
-                    text = typeDelivery,
-                    label = "Тип перевозки",
-                    onValueChange = { typeDelivery = it }
                 )
             }
             FooterButtons(

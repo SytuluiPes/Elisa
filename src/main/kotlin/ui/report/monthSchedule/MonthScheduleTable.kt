@@ -1,4 +1,4 @@
-package ui.route.weekSchedule
+package ui.report.monthSchedule
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -246,7 +246,7 @@ private val exampleWeekScheduleItemList = listOf(
 )
 
 @Composable
-fun WeekScheduleTable(
+fun MonthScheduleTable(
     itemList: List<OrderItemModel> = exampleWeekScheduleItemList,
     fieldWidthList: List<Dp>,
 ) {
@@ -263,14 +263,14 @@ fun WeekScheduleTable(
     ) {
         itemList.forEachIndexed { index, item ->
             item {
-//                WeekScheduleItemList(
-//                    item = item,
-//                    color = if (index % 2 == 0)
-//                        Pair(ElisaColor.White, ElisaColor.LightBlue)
-//                    else
-//                        Pair(ElisaColor.LightBlue, ElisaColor.White),
-//                    fieldWidthList = fieldWidthList,
-//                )
+                MonthScheduleItemList(
+                    item = item,
+                    color = if (index % 2 == 0)
+                        Pair(ElisaColor.White, ElisaColor.LightBlue)
+                    else
+                        Pair(ElisaColor.LightBlue, ElisaColor.White),
+                    fieldWidthList = fieldWidthList,
+                )
             }
         }
     }

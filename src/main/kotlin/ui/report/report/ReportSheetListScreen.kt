@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import data.model.MonthReportModel
 import navigation.ReportSheetDestination
 import ui.common.ElisaDivider
 import ui.common.ElisaHeader
@@ -17,24 +18,284 @@ import ui.common.buttons.ElisaSmallItemButton
 import util.Constant
 import util.Constant.CLOSE
 import util.Constant.COUNT
-import util.Constant.DESTINATION
 import util.Constant.ID
 import util.Constant.LIST_REPORT
 import util.Constant.MONTH_TASK
-import util.Constant.PHONE_NUMBER
+import util.Constant.ORDER_COUNT
 import util.Constant.PRINT
 import util.Constant.PRODUCT_NAME
 import util.Constant.REPORT_TASK
 import util.Constant.SOLUTION
+import util.Constant.TOTAL
 import util.Constant.UNIT
 import util.ElisaColor
 
+private val exampleReportSheetList = listOf(
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+    MonthReportModel(
+        id = 1,
+        productName = "Кирпич М-100",
+        unit = "паллеты",
+        count = 685,
+        total = 13850000,
+        orderCount = 32,
+    ),
+    MonthReportModel(
+        id = 2,
+        productName = "Кирпич М-125",
+        unit = "паллеты",
+        count = 540,
+        total = 18421000,
+        orderCount = 24,
+    ),
+)
+
 @Composable
 fun ReportSheetListScreen(
+    itemList: List<MonthReportModel> = exampleReportSheetList,
     onBackClick: () -> Unit,
     onItemClick: (ReportSheetDestination) -> Unit,
 ) {
-    val fieldWidthList = listOf(60.dp, 450.dp, 200.dp, 200.dp, 250.dp, 100.dp)
+    val fieldWidthList = listOf(60.dp, 350.dp, 200.dp, 200.dp, 250.dp, 200.dp)
     Column(
         modifier = Modifier.fillMaxSize().background(Color(0xFFE8E8E8)),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -71,39 +332,42 @@ fun ReportSheetListScreen(
                     isHorizontal = false,
                 )
                 ElisaHeaderText(
-                    text = DESTINATION,
+                    text = PRODUCT_NAME,
                     textWidth = fieldWidthList[1],
                 )
                 ElisaDivider(
                     isHorizontal = false,
                 )
                 ElisaHeaderText(
-                    text = PRODUCT_NAME,
+                    text = UNIT,
                     textWidth = fieldWidthList[2],
                 )
                 ElisaDivider(
                     isHorizontal = false,
                 )
                 ElisaHeaderText(
-                    text = UNIT,
+                    text = COUNT,
                     textWidth = fieldWidthList[3],
                 )
                 ElisaDivider(
                     isHorizontal = false,
                 )
                 ElisaHeaderText(
-                    text = COUNT,
+                    text = TOTAL,
                     textWidth = fieldWidthList[4],
                 )
                 ElisaDivider(
                     isHorizontal = false,
                 )
                 ElisaHeaderText(
-                    text = PHONE_NUMBER,
+                    text = ORDER_COUNT,
                     textWidth = fieldWidthList[5],
                 )
             }
-            ReportListTable(fieldWidthList = fieldWidthList)
+            ReportListTable(
+                itemList = itemList,
+                fieldWidthList = fieldWidthList,
+            )
         }
         Row(
             modifier = Modifier.fillMaxSize(),

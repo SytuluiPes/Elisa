@@ -1,6 +1,6 @@
-package data.main
+package data.model
 
-import data.main.VehicleModel.RouteType.Cargo
+import data.model.VehicleModel.RouteType.Cargo
 
 data class VehicleModel(
     val fioDriver: String,

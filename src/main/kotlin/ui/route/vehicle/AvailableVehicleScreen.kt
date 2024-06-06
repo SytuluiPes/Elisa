@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import data.main.VehicleModel
-import data.main.VehicleModel.RouteType
-import data.main.VehicleModel.RouteType.Cargo
-import data.main.VehicleModel.RouteType.Documents
+import data.model.VehicleModel
+import data.model.VehicleModel.RouteType
+import data.model.VehicleModel.RouteType.Cargo
+import data.model.VehicleModel.RouteType.Documents
 import ui.common.ElisaDivider
 import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText

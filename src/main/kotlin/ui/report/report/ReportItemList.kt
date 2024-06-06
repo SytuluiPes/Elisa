@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import data.main.MonthReportModel
+import data.model.MonthReportModel
 import ui.common.ElisaDivider
 import ui.common.ElisaTextItem
 import util.Constant

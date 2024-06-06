@@ -1,4 +1,4 @@
-package ui.route.vehicle
+package ui.report.listReport
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height
@@ -10,12 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import data.model.VehicleModel
+import data.model.OrderReportModel
 import util.Constant
 
 @Composable
-fun VehicleTable(
-    itemList: List<VehicleModel> = emptyList(),
+fun ListReportTable(
+    itemList: List<OrderReportModel>,
     fieldWidthList: List<Dp>,
 ) {
     LazyColumn(
@@ -31,7 +31,7 @@ fun VehicleTable(
     ) {
         itemList.forEachIndexed { index, item ->
             item {
-                VehicleItemList(
+                ListReportItemList(
                     item = item,
                     color = if (index % 2 == 0)
                         Pair(Color(0xFFFFFFFF), Color(0xFFF0F3FF))

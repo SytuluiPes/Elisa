@@ -25,7 +25,7 @@ fun ElisaButton(
             Text(
                 text = textButton,
                 fontSize = 20.sp,
-                color = Color.Black
+                color = Color.Black,
             )
         },
     )

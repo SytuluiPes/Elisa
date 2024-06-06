@@ -20,6 +20,7 @@ object Constant {
     const val PRODUCT_NAME = "Наименование продукции"
     const val UNIT = "Ед. изм."
     const val COUNT = "Кол-во"
+    const val ORDER_COUNT = "Кол-во заказов"
     const val TOTAL = "Стоимость"
 
     const val CUSTOMER = "Заказчик"
@@ -28,7 +29,9 @@ object Constant {
     const val PHONE = "Телефон"
     const val PHONE_NUMBER = "Номер телефона"
     const val DATE_DELIVERY = "Срок поставки"
+    const val DATE_DELIVERY_FACT = "Фактический срок поставки"
     const val TYPE_DELIVERY = "Тип перевозки"
+    const val CAUSE = "Причина срыва сроков"
 
     const val SOLUTION = "Решение задачи"
     const val PRINT = "Печать"

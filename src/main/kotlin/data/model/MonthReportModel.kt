@@ -1,4 +1,4 @@
-package data.main
+package data.model
 
 data class MonthReportModel(
     val id: Int,

@@ -1,4 +1,4 @@
-package data.main
+package data.model
 
 import data.AddressModel
 import data.ProductModel

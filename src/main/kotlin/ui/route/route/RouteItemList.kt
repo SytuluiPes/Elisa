@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
-import data.main.RouteItemModel
+import data.model.RouteItemModel
 import ui.common.ElisaDivider
 import ui.common.ElisaTextItem
 import util.Constant

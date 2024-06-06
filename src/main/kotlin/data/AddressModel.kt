@@ -6,4 +6,7 @@ data class AddressModel(
     val town: String,
     val street: String,
     val house: Int,
-)
+) {
+    fun asString(): String =
+        "$index, $region, $town, $street, $house"
+}

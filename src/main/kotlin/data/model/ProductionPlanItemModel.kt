@@ -1,4 +1,4 @@
-package data.main
+package data.model
 
 data class ProductionPlanItemModel(
     val id: String,
