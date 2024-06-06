@@ -9,14 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import data.VehicleModel
-import data.VehicleModel.RouteType
-import data.VehicleModel.RouteType.Cargo
-import data.VehicleModel.RouteType.Documents
+import data.main.VehicleModel
+import data.main.VehicleModel.RouteType
+import data.main.VehicleModel.RouteType.Cargo
+import data.main.VehicleModel.RouteType.Documents
 import ui.common.ElisaDivider
 import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
+import ui.common.buttons.ElisaButton
 import ui.common.buttons.FooterButtons
 import util.Constant
 import util.Constant.AVAILABLE_CAR
@@ -112,6 +113,7 @@ private val exampleVehicleList = mutableStateListOf(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AvailableVehicleScreen(
+    onAddProductItemClick: () -> Unit,
     onBackClick: () -> Unit,
     itemList: MutableList<VehicleModel> = exampleVehicleList,
 ) {
@@ -197,7 +199,7 @@ fun AvailableVehicleScreen(
         ) {
             FlowRow(
                 modifier = Modifier
-                    .height(160.dp)
+                    .height(240.dp)
                     .width(1000.dp)
                     .border(BorderStroke(0.5.dp, color = ElisaColor.Black), RoundedCornerShape(20))
                     .padding(10.dp),
@@ -229,6 +231,10 @@ fun AvailableVehicleScreen(
                     text = typeTransportation,
                     label = "Назначение",
                     onValueChange = { typeTransportation = it }
+                )
+                ElisaButton(
+                    textButton = "ТЕСТ",
+                    onButtonClick = onAddProductItemClick,
                 )
             }
             FooterButtons(

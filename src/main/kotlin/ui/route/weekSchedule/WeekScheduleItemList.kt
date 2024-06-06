@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import data.AddressModel
-import data.WeekScheduleItemModel
+import data.main.WeekScheduleItemModel
 import ui.common.ElisaDivider
 import ui.common.ElisaTextItem
 

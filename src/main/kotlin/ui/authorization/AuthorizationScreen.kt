@@ -48,6 +48,7 @@ fun AuthorizationScreen(
             text = pass,
             borderColor = borderColor,
             onValueChange = { pass = it },
+            isPasswordField = true,
         )
         Spacer(Modifier.size(30.dp))
         ElisaButton(

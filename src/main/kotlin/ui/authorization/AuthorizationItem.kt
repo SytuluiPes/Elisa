@@ -18,6 +18,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,6 +31,7 @@ fun AuthorizationTextItem(
     text: String,
     borderColor: Color = Color.White,
     onValueChange: (String) -> Unit,
+    isPasswordField: Boolean = false,
 ) {
     MaterialTheme {
         Column(
@@ -56,12 +59,17 @@ fun AuthorizationTextItem(
                 value = text,
                 textStyle = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.W400),
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = ElisaColor.Raspberry,
+                    textColor = ElisaColor.White,
                     focusedIndicatorColor = borderColor,
                     cursorColor = borderColor,
                 ),
                 onValueChange = onValueChange,
                 singleLine = true,
+                visualTransformation =
+                if (isPasswordField)
+                    PasswordVisualTransformation('*')
+                else
+                    VisualTransformation.None,
             )
         }
     }

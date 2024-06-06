@@ -50,7 +50,7 @@ fun MainScreen(
             )
             ElisaBigItemButton(
                 textButton = "Составление отчета о выполнении месячного плана отгрузки готовой продукции",
-                onButtonClick = { onItemClick(MainScreenDestination.ReportScreen) },
+                onButtonClick = { onItemClick(MainScreenDestination.ReportSheetListScreen) },
             )
         }
     }

@@ -1,4 +1,6 @@
-package data
+package data.main
+
+import data.ProductModel
 
 data class RouteItemModel(
     val id: Long,

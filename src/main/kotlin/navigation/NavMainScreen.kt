@@ -18,7 +18,7 @@ object NavMainScreen {
 
             MainScreenDestination.MonthScheduleScreen -> TODO()
             MainScreenDestination.WeekScheduleScreen -> TODO()
-            MainScreenDestination.ReportScreen -> TODO()
+            MainScreenDestination.ReportSheetListScreen -> NavReportSheetListDestination.init()
         }
     }
 }
@@ -28,5 +28,5 @@ enum class MainScreenDestination {
     RouteSheetListScreen,
     MonthScheduleScreen,
     WeekScheduleScreen,
-    ReportScreen,
+    ReportSheetListScreen,
 }

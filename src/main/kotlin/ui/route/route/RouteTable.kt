@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import data.ProductModel
-import data.RouteItemModel
+import data.main.RouteItemModel
 import util.Constant
 import util.ElisaColor
 
@@ -169,8 +169,6 @@ private val exampleRouteItemList = listOf(
         ),
         phoneNumber = "+1-3330-22-11"
     )
-
-
 )
 
 @Composable

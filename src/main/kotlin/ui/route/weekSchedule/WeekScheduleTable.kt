@@ -11,11 +11,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import data.AddressModel
 import data.ProductModel
-import data.WeekScheduleItemModel
+import data.main.OrderItemModel
 import util.ElisaColor
 
 private val exampleWeekScheduleItemList = listOf(
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -46,7 +46,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -72,7 +72,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -103,7 +103,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -129,7 +129,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -160,7 +160,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -186,7 +186,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -217,7 +217,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    WeekScheduleItemModel(
+    OrderItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -247,7 +247,7 @@ private val exampleWeekScheduleItemList = listOf(
 
 @Composable
 fun WeekScheduleTable(
-    itemList: List<WeekScheduleItemModel> = exampleWeekScheduleItemList,
+    itemList: List<OrderItemModel> = exampleWeekScheduleItemList,
     fieldWidthList: List<Dp>,
 ) {
     LazyColumn(
@@ -256,21 +256,21 @@ fun WeekScheduleTable(
             .height(350.dp)
             .fillMaxWidth()
             .border(
-                width = 1.dp,
+                width = 0.5.dp,
                 color = ElisaColor.DarkBlue,
             ),
         userScrollEnabled = true,
     ) {
         itemList.forEachIndexed { index, item ->
             item {
-                WeekScheduleItemList(
-                    item = item,
-                    color = if (index % 2 == 0)
-                        Pair(ElisaColor.White, ElisaColor.LightBlue)
-                    else
-                        Pair(ElisaColor.LightBlue, ElisaColor.White),
-                    fieldWidthList = fieldWidthList,
-                )
+//                WeekScheduleItemList(
+//                    item = item,
+//                    color = if (index % 2 == 0)
+//                        Pair(ElisaColor.White, ElisaColor.LightBlue)
+//                    else
+//                        Pair(ElisaColor.LightBlue, ElisaColor.White),
+//                    fieldWidthList = fieldWidthList,
+//                )
             }
         }
     }
