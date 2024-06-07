@@ -11,25 +11,32 @@ object Constant {
     const val WEEK_TASK = "Недельный график поставки готовой продукции"
     const val REPORT_TASK = "Отчет о выполнении месячного плана отгрузки готовой продукции"
 
+    const val ORDER_LIST = "Перечень заказов"
+    const val MONTH_FACTORY = "План производства продукции на месяц"
     const val AVAILABLE_CAR = "Перечень доступных транспортных средств"
     const val LIST_REPORT = "Перечень отчетов о выполнении заказов"
 
     const val ID = "№ п/п"
-
+    const val ARTICLE = "артикул"
     const val PRODUCT_LIST = "Список продукции"
     const val PRODUCT_NAME = "Наименование продукции"
     const val UNIT = "Ед. изм."
     const val COUNT = "Кол-во"
     const val ORDER_COUNT = "Кол-во заказов"
     const val TOTAL = "Стоимость"
+    const val FACTORY = "Номер цеха"
 
     const val CUSTOMER = "Заказчик"
     const val ADDRESS = "Адрес"
     const val DESTINATION = "Пункт назначения"
     const val PHONE = "Телефон"
     const val PHONE_NUMBER = "Номер телефона"
+
     const val DATE_DELIVERY = "Срок поставки"
     const val DATE_DELIVERY_FACT = "Фактический срок поставки"
+    const val DATE_START = "Дата начала"
+    const val DATE_END = "Дата окончания"
+
     const val TYPE_DELIVERY = "Тип перевозки"
     const val CAUSE = "Причина срыва сроков"
 

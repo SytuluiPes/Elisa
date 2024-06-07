@@ -1,4 +1,4 @@
-package ui.report.report
+package ui.task.report.report
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxHeight

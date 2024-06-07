@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
-import ui.route.weekSchedule.WeekScheduleTable
+import ui.task.route.weekSchedule.WeekScheduleTable
 import util.Constant
 import util.Constant.COUNT
 import util.Constant.PRODUCT_LIST

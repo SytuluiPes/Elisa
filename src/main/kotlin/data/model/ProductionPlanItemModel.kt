@@ -1,12 +1,13 @@
 package data.model
 
-data class ProductionPlanItemModel(
-    val id: String,
+data class MonthFactoryItemModel(
+    val id: Long,
+    val article: String,
     val productName: String,
     val unit: String,
     val count: Int,
-    val startDate: String,
-    val endDate: String,
-    val costPrice: Long,
+    val total: Long,
+    val dateStart: String,
+    val dateEnd: String,
     val factoryId: Int,
 )

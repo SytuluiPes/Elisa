@@ -3,9 +3,9 @@ package navigation
 import androidx.compose.runtime.*
 import ui.AddAddressScreen
 import ui.AddProductScreen
-import ui.report.listReport.ListReportScreen
-import ui.report.monthSchedule.MonthScheduleScreen
-import ui.report.report.ReportSheetListScreen
+import ui.task.report.listReport.ListReportScreen
+import ui.task.report.monthSchedule.MonthScheduleScreen
+import ui.task.report.report.ReportSheetListScreen
 
 object NavReportSheetListDestination {
     @Composable

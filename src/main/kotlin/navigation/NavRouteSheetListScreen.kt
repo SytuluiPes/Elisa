@@ -2,9 +2,9 @@ package navigation
 
 import androidx.compose.runtime.*
 import ui.AddProductScreen
-import ui.route.route.RouteSheetListScreen
-import ui.route.vehicle.AvailableVehicleScreen
-import ui.route.weekSchedule.WeekScheduleListScreen
+import ui.task.route.route.RouteSheetListScreen
+import ui.task.route.vehicle.AvailableVehicleScreen
+import ui.task.route.weekSchedule.WeekScheduleListScreen
 
 object NavRouteSheetListScreen {
     @Composable

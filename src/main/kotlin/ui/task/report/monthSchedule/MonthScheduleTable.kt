@@ -1,4 +1,4 @@
-package ui.report.monthSchedule
+package ui.task.report.monthSchedule
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth

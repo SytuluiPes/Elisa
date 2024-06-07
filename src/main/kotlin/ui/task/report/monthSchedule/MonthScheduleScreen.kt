@@ -1,4 +1,4 @@
-package ui.report.monthSchedule
+package ui.task.report.monthSchedule
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -9,21 +9,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import data.model.MonthScheduleItemModel
+import navigation.ReportSheetDestination
 import ui.common.ElisaDivider
 import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
 import ui.common.buttons.ElisaButton
+import ui.common.buttons.ElisaSmallItemButton
 import ui.common.buttons.FooterButtons
 import util.Constant
 import util.Constant.ADDRESS
+import util.Constant.CLOSE
+import util.Constant.MONTH_FACTORY
 import util.Constant.MONTH_TASK
+import util.Constant.ORDER_LIST
+import util.Constant.PRINT
 import util.Constant.PRODUCT_LIST
+import util.Constant.SOLUTION
 import util.ElisaColor
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun MonthScheduleScreen(
+    isTask: Boolean = true,
+    itemList: List<MonthScheduleItemModel> = emptyList(),
+    onItemClick: (ReportSheetDestination) -> Unit = {},
     onAddAddressClick: () -> Unit,
     onAddProductClick: () -> Unit,
     onBackClick: () -> Unit,
@@ -124,49 +135,76 @@ fun MonthScheduleScreen(
                 isHorizontal = false,
             )
         }
-        MonthScheduleTable(fieldWidthList = fieldWidthList)
-        Row(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            FlowRow(
-                modifier = Modifier
-                    .height(240.dp)
-                    .width(1000.dp)
-                    .border(BorderStroke(0.5.dp, color = ElisaColor.Black), RoundedCornerShape(20))
-                    .padding(10.dp),
+        MonthScheduleTable(
+            fieldWidthList = fieldWidthList,
+        )
+        if (isTask) {
+            Row(
+                modifier = Modifier.fillMaxSize(),
                 horizontalArrangement = Arrangement.SpaceAround,
-                verticalArrangement = Arrangement.SpaceAround,
-                maxItemsInEachRow = 3,
             ) {
-                ElisaTextField(
-                    text = customerFio,
-                    label = "Заказчик",
-                    onValueChange = { customerFio = it }
+                ElisaSmallItemButton(
+                    textButton = ORDER_LIST,
+                    onButtonClick = { onItemClick(ReportSheetDestination.ListReportScreen) },
                 )
-                ElisaButton(
-                    textButton = ADDRESS,
-                    onButtonClick = onAddAddressClick,
+                ElisaSmallItemButton(
+                    textButton = MONTH_FACTORY,
+                    onButtonClick = { onItemClick(ReportSheetDestination.MonthScheduleScreen) },
                 )
-                ElisaTextField(
-                    text = phoneNumber,
-                    label = "Телефон",
-                    onValueChange = { phoneNumber = it }
+                ElisaSmallItemButton(
+                    textButton = SOLUTION,
                 )
-                ElisaButton(
-                    textButton = PRODUCT_LIST,
-                    onButtonClick = onAddProductClick,
+                ElisaSmallItemButton(
+                    textButton = PRINT,
                 )
-                ElisaTextField(
-                    text = dateDelivery,
-                    label = "Срок поставки",
-                    onValueChange = { dateDelivery = it }
+                ElisaSmallItemButton(
+                    textButton = CLOSE,
+                    onButtonClick = onBackClick,
                 )
             }
-            FooterButtons(
-                onAddClick = {
+        } else {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                FlowRow(
+                    modifier = Modifier
+                        .height(240.dp)
+                        .width(1000.dp)
+                        .border(BorderStroke(0.5.dp, color = ElisaColor.Black), RoundedCornerShape(20))
+                        .padding(10.dp),
+                    horizontalArrangement = Arrangement.SpaceAround,
+                    verticalArrangement = Arrangement.SpaceAround,
+                    maxItemsInEachRow = 3,
+                ) {
+                    ElisaTextField(
+                        text = customerFio,
+                        label = "Заказчик",
+                        onValueChange = { customerFio = it }
+                    )
+                    ElisaButton(
+                        textButton = ADDRESS,
+                        onButtonClick = onAddAddressClick,
+                    )
+                    ElisaTextField(
+                        text = phoneNumber,
+                        label = "Телефон",
+                        onValueChange = { phoneNumber = it }
+                    )
+                    ElisaButton(
+                        textButton = PRODUCT_LIST,
+                        onButtonClick = onAddProductClick,
+                    )
+                    ElisaTextField(
+                        text = dateDelivery,
+                        label = "Срок поставки",
+                        onValueChange = { dateDelivery = it }
+                    )
+                }
+                FooterButtons(
+                    onAddClick = {
 //                    if (isFilled) {
 //                        itemList.add(
 //                            VehicleModel(
@@ -179,10 +217,11 @@ fun MonthScheduleScreen(
 //                        )
 //                        reset = true
 //                    }
-                },
-                onDeleteClick = {},
-                onCloseClick = onBackClick,
-            )
+                    },
+                    onDeleteClick = {},
+                    onCloseClick = onBackClick,
+                )
+            }
         }
     }
 }

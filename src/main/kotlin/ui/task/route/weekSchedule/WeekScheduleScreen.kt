@@ -1,4 +1,4 @@
-package ui.route.weekSchedule
+package ui.task.route.weekSchedule
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*

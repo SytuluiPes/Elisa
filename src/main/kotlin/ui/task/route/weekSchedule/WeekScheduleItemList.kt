@@ -1,4 +1,4 @@
-package ui.report.monthSchedule
+package ui.task.route.weekSchedule
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -10,13 +10,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
-import data.model.OrderItemModel
+import data.model.WeekScheduleItemModel
 import ui.common.ElisaDivider
 import ui.common.ElisaTextItem
 
 @Composable
-fun MonthScheduleItemList(
-    item: OrderItemModel,
+fun WeekScheduleItemList(
+    item: WeekScheduleItemModel,
     color: Pair<Color, Color>,
     fieldWidthList: List<Dp>,
 ) {
@@ -36,10 +36,34 @@ fun MonthScheduleItemList(
             color = color.second,
             isHorizontal = false,
         )
+        ElisaTextItem(
+            text = item.customer,
+            textWidth = fieldWidthList[1],
+        )
+        ElisaDivider(
+            color = color.second,
+            isHorizontal = false,
+        )
+        ElisaTextItem(
+            text = item.address.asString(),
+            textWidth = fieldWidthList[2],
+        )
+        ElisaDivider(
+            color = color.second,
+            isHorizontal = false,
+        )
+        ElisaTextItem(
+            text = item.phoneNumber,
+            textWidth = fieldWidthList[3],
+        )
+        ElisaDivider(
+            color = color.second,
+            isHorizontal = false,
+        )
         Column(
             modifier = Modifier
                 .height(item.productList.size * 40.dp)
-                .width(fieldWidthList[1] + fieldWidthList[2] + fieldWidthList[3] + fieldWidthList[4] + 3.dp)
+                .width(fieldWidthList[4] + fieldWidthList[5] + fieldWidthList[6] + fieldWidthList[7] + 3.dp)
                 .background(color.first),
         ) {
             for (productItem in item.productList) {
@@ -51,7 +75,7 @@ fun MonthScheduleItemList(
                 ) {
                     ElisaTextItem(
                         text = productItem.productName,
-                        textWidth = fieldWidthList[1],
+                        textWidth = fieldWidthList[4],
                     )
                     ElisaDivider(
                         color = color.second,
@@ -59,7 +83,7 @@ fun MonthScheduleItemList(
                     )
                     ElisaTextItem(
                         text = productItem.unit,
-                        textWidth = fieldWidthList[2],
+                        textWidth = fieldWidthList[5],
                     )
                     ElisaDivider(
                         color = color.second,
@@ -67,7 +91,7 @@ fun MonthScheduleItemList(
                     )
                     ElisaTextItem(
                         text = productItem.count.toString(),
-                        textWidth = fieldWidthList[3],
+                        textWidth = fieldWidthList[6],
                     )
                     ElisaDivider(
                         color = color.second,
@@ -75,7 +99,7 @@ fun MonthScheduleItemList(
                     )
                     ElisaTextItem(
                         text = productItem.total.toString(),
-                        textWidth = fieldWidthList[4],
+                        textWidth = fieldWidthList[7],
                     )
                 }
                 ElisaDivider(
@@ -88,32 +112,16 @@ fun MonthScheduleItemList(
             isHorizontal = false,
         )
         ElisaTextItem(
-            text = item.customer,
-            textWidth = fieldWidthList[5],
-        )
-        ElisaDivider(
-            color = color.second,
-            isHorizontal = false,
-        )
-        ElisaTextItem(
-            text = item.address.asString(),
-            textWidth = fieldWidthList[6],
-        )
-        ElisaDivider(
-            color = color.second,
-            isHorizontal = false,
-        )
-        ElisaTextItem(
-            text = item.phoneNumber,
-            textWidth = fieldWidthList[7],
-        )
-        ElisaDivider(
-            color = color.second,
-            isHorizontal = false,
-        )
-        ElisaTextItem(
             text = item.dateDelivery,
             textWidth = fieldWidthList[8],
+        )
+        ElisaDivider(
+            color = color.second,
+            isHorizontal = false,
+        )
+        ElisaTextItem(
+            text = item.typeDelivery,
+            textWidth = fieldWidthList[9],
         )
     }
 }
