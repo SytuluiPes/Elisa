@@ -15,6 +15,7 @@ import ui.common.ElisaHeader
 import ui.common.ElisaHeaderText
 import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
+import ui.task.Trash
 import util.Constant
 import util.Constant.ARTICLE
 import util.Constant.COUNT
@@ -33,15 +34,34 @@ fun MonthFactoryScreen(
     itemList: List<MonthFactoryItemModel> = emptyList(),
     onBackClick: () -> Unit,
 ) {
-    var article by remember { mutableStateOf("") }
-    var productName by remember { mutableStateOf("") }
-    var unit by remember { mutableStateOf("") }
-    var count by remember { mutableStateOf("") }
-    var dateStart by remember { mutableStateOf("") }
-    var dateEnd by remember { mutableStateOf("") }
-    var total by remember { mutableStateOf("") }
-    var factoryId by remember { mutableStateOf("") }
+    var _article = ""
+    var _productName = ""
+    var _unit = ""
+    var _count = ""
+    var _total = ""
+    var _dateStart = ""
+    var _dateEnd = ""
+    var _factoryId = ""
 
+    if (Trash.monthFactoryList.isNotEmpty()) {
+        _article = Trash.monthFactoryList.first().article
+        _productName = Trash.monthFactoryList.first().productName
+        _unit = Trash.monthFactoryList.first().unit
+        _count = Trash.monthFactoryList.first().count.toString()
+        _total = Trash.monthFactoryList.first().total.toString()
+        _dateStart = Trash.monthFactoryList.first().dateStart
+        _dateEnd = Trash.monthFactoryList.first().dateEnd
+        _factoryId = Trash.monthFactoryList.first().factoryId.toString()
+
+    }
+    var article by remember { mutableStateOf(_article) }
+    var productName by remember { mutableStateOf(_productName) }
+    var unit by remember { mutableStateOf(_unit) }
+    var count by remember { mutableStateOf(_count) }
+    var total by remember { mutableStateOf(_total) }
+    var dateStart by remember { mutableStateOf(_dateStart) }
+    var dateEnd by remember { mutableStateOf(_dateEnd) }
+    var factoryId by remember { mutableStateOf(_factoryId) }
     val fieldWidthList = listOf(60.dp, 120.dp, 350.dp, 120.dp, 120.dp, 120.dp, 120.dp, 120.dp, 130.dp)
     Column(
         modifier = Modifier
@@ -189,7 +209,22 @@ fun MonthFactoryScreen(
             FooterButtons(
                 onAddClick = {},
                 onDeleteClick = {},
-                onCloseClick = onBackClick,
+                onCloseClick = {
+                    Trash.monthFactoryList.add(
+                        MonthFactoryItemModel(
+                            id = 1,
+                            article = article,
+                            productName = productName,
+                            unit = unit,
+                            count = count.toInt(),
+                            total = total.toLong(),
+                            dateStart = dateStart,
+                            dateEnd = dateEnd,
+                            factoryId = factoryId.toInt(),
+                        )
+                    )
+                    onBackClick()
+                },
             )
         }
     }

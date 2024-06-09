@@ -15,6 +15,9 @@ repositories {
 }
 
 dependencies {
+    val lifecycle_version = "2.8.0-alpha03"
+    implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
+
     implementation(compose.runtime)
     implementation(compose.foundation)
     implementation(compose.material)

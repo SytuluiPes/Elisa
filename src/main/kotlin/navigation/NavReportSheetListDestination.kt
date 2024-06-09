@@ -1,8 +1,8 @@
 package navigation
 
 import androidx.compose.runtime.*
-import ui.AddAddressScreen
-import ui.AddProductScreen
+import ui.address.AddAddressScreen
+import ui.product.AddProductScreen
 import ui.task.report.listReport.ListReportScreen
 import ui.task.report.monthSchedule.MonthScheduleScreen
 import ui.task.report.report.ReportSheetListScreen
@@ -25,14 +25,7 @@ object NavReportSheetListDestination {
             ReportSheetDestination.MainScreen -> NavMainScreen.init()
 
             ReportSheetDestination.MonthScheduleScreen -> MonthScheduleScreen(
-                onAddAddressClick = {
-                    predNavigation = navigation
-                    navigation = ReportSheetDestination.AddAddressScreen
-                },
-                onAddProductClick = {
-                    predNavigation = navigation
-                    navigation = ReportSheetDestination.AddProductItemScreen
-                },
+                isTask = false,
                 onBackClick = { navigation = ReportSheetDestination.ReportSheetListScreen },
             )
 

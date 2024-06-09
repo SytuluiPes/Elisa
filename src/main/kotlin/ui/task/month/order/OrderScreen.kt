@@ -1,4 +1,4 @@
-package ui.task.route.weekSchedule
+package ui.task.month.order
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -24,35 +24,32 @@ import util.Constant.PHONE
 import util.Constant.PRODUCT_LIST
 import util.Constant.PRODUCT_NAME
 import util.Constant.TOTAL
-import util.Constant.TYPE_DELIVERY
 import util.Constant.UNIT
 import util.ElisaColor
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun WeekScheduleListScreen(
+fun OrderScreen(
     onAddProductItemClick: () -> Unit,
+    onAddAddressItemClick: () -> Unit,
     onBackClick: () -> Unit,
 ) {
     var customerFio by remember { mutableStateOf("") }
-    var address by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
     var dateDelivery by remember { mutableStateOf("") }
-    var typeDelivery by remember { mutableStateOf("") }
 
     val headerNameList = listOf(
         ID,
         CUSTOMER,
         ADDRESS,
         PHONE,
+        DATE_DELIVERY,
         PRODUCT_NAME,
         UNIT,
         COUNT,
         TOTAL,
-        DATE_DELIVERY,
-        TYPE_DELIVERY,
     )
-    val fieldWidthList = listOf(60.dp, 150.dp, 250.dp, 120.dp, 150.dp, 80.dp, 80.dp, 110.dp, 120.dp, 140.dp)
+    val fieldWidthList = listOf(60.dp, 150.dp, 220.dp, 130.dp, 100.dp, 280.dp, 100.dp, 100.dp, 110.dp)
     Column(
         modifier = Modifier
             .size(width = Constant.WINDOW_WIDTH - 20.dp, height = Constant.WINDOW_HEIGHT)
@@ -62,7 +59,7 @@ fun WeekScheduleListScreen(
     ) {
         Spacer(Modifier.size(5.dp))
         Text(
-            text = Constant.WEEK_TASK,
+            text = Constant.ORDER_LIST,
             fontWeight = FontWeight.W400,
             fontSize = 24.sp,
         )
@@ -71,7 +68,7 @@ fun WeekScheduleListScreen(
             headerNameList = headerNameList,
             fieldWidthList = fieldWidthList,
         )
-        WeekScheduleTable(fieldWidthList = fieldWidthList)
+        OrderTable(fieldWidthList = fieldWidthList)
         Row(
             modifier = Modifier
                 .fillMaxSize()
@@ -93,46 +90,27 @@ fun WeekScheduleListScreen(
                     label = CUSTOMER,
                     onValueChange = { customerFio = it }
                 )
-                ElisaTextField(
-                    text = address,
-                    label = ADDRESS,
-                    onValueChange = { address = it }
+                ElisaButton(
+                    textButton = ADDRESS,
+                    onButtonClick = onAddAddressItemClick,
                 )
                 ElisaTextField(
                     text = phoneNumber,
                     label = PHONE,
                     onValueChange = { phoneNumber = it }
                 )
-                ElisaButton(
-                    textButton = PRODUCT_LIST,
-                    onButtonClick = onAddProductItemClick,
-                )
                 ElisaTextField(
                     text = dateDelivery,
                     label = DATE_DELIVERY,
                     onValueChange = { dateDelivery = it }
                 )
-                ElisaTextField(
-                    text = typeDelivery,
-                    label = TYPE_DELIVERY,
-                    onValueChange = { typeDelivery = it }
+                ElisaButton(
+                    textButton = PRODUCT_LIST,
+                    onButtonClick = onAddProductItemClick,
                 )
             }
             FooterButtons(
-                onAddClick = {
-//                    if (isFilled) {
-//                        itemList.add(
-//                            VehicleModel(
-//                                fioDriver = fio,
-//                                phoneDriver = phoneNumber,
-//                                vehicleNumber = carNumber,
-//                                vehicleModel = makeAndModelCar,
-//                                routeType = typeTransportation.asRouteType(),
-//                            )
-//                        )
-//                        reset = true
-//                    }
-                },
+                onAddClick = {},
                 onDeleteClick = {},
                 onCloseClick = onBackClick,
             )

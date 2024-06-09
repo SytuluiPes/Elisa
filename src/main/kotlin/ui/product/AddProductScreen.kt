@@ -1,4 +1,4 @@
-package ui
+package ui.product
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import ui.HeaderTable
 import ui.common.ElisaTextField
 import ui.common.buttons.FooterButtons
-import ui.task.route.weekSchedule.WeekScheduleTable
 import util.Constant
 import util.Constant.COUNT
 import util.Constant.PRODUCT_LIST
@@ -23,7 +23,7 @@ import util.ElisaColor
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun AddAddressScreen(
+fun AddProductScreen(
     onBackClick: () -> Unit,
 ) {
     var productName by remember { mutableStateOf("") }
@@ -50,7 +50,7 @@ fun AddAddressScreen(
             headerNameList = listOf(PRODUCT_NAME, UNIT, COUNT, TOTAL),
             fieldWidthList = fieldWidthList,
         )
-        WeekScheduleTable(fieldWidthList = fieldWidthList)
+        AddProductTable(fieldWidthList = fieldWidthList)
         Row(
             modifier = Modifier
                 .fillMaxSize()
@@ -59,8 +59,8 @@ fun AddAddressScreen(
         ) {
             FlowRow(
                 modifier = Modifier
-                    .height(240.dp)
-                    .width(600.dp)
+                    .height(160.dp)
+                    .width(1000.dp)
                     .border(BorderStroke(0.5.dp, color = ElisaColor.Black), RoundedCornerShape(20))
                     .padding(10.dp),
                 horizontalArrangement = Arrangement.SpaceAround,

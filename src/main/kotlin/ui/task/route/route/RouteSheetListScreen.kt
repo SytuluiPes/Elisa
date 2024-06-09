@@ -16,6 +16,8 @@ import ui.common.ElisaHeaderText
 import ui.common.buttons.ElisaSmallItemButton
 import util.Constant
 import util.Constant.AVAILABLE_CAR
+import util.Constant.DESTINATION
+import util.Constant.ID
 import util.Constant.ROUTE_TASK
 import util.Constant.WEEK_TASK
 import util.ElisaColor
@@ -27,7 +29,9 @@ fun RouteSheetListScreen(
 ) {
     val fieldWidthList = listOf(80.dp, 450.dp, 290.dp, 180.dp, 100.dp, 260.dp)
     Column(
-        modifier = Modifier.fillMaxSize().background(Color(0xFFE8E8E8)),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFE8E8E8)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top,
     ) {
@@ -55,14 +59,14 @@ fun RouteSheetListScreen(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 ElisaHeaderText(
-                    text = "№ п/п",
+                    text = ID,
                     textWidth = fieldWidthList[0],
                 )
                 ElisaDivider(
                     isHorizontal = false,
                 )
                 ElisaHeaderText(
-                    text = "Место назначения",
+                    text = DESTINATION,
                     textWidth = fieldWidthList[1],
                 )
                 ElisaDivider(

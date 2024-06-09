@@ -20,7 +20,7 @@ class App {
 
             Window(
                 onCloseRequest = {
-                    databaseConnection.close()
+//                    databaseConnection.close()
                     exitApplication()
                 },
                 state = windowSize,

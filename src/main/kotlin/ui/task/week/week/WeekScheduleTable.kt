@@ -1,6 +1,7 @@
-package ui.task.route.weekSchedule
+package ui.task.week.week
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -11,11 +12,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import data.AddressModel
 import data.ProductModel
-import data.model.OrderItemModel
+import data.model.WeekScheduleItemModel
 import util.ElisaColor
 
 private val exampleWeekScheduleItemList = listOf(
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -46,7 +47,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -72,7 +73,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -103,7 +104,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -129,7 +130,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -160,7 +161,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -186,7 +187,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Ковалев Артем Александр",
         address = AddressModel(
@@ -217,7 +218,7 @@ private val exampleWeekScheduleItemList = listOf(
         dateDelivery = "26.11.2025",
         typeDelivery = "Грузовой",
     ),
-    OrderItemModel(
+    WeekScheduleItemModel(
         id = 1,
         customer = "Зуев Петр Михайлович",
         address = AddressModel(
@@ -247,13 +248,14 @@ private val exampleWeekScheduleItemList = listOf(
 
 @Composable
 fun WeekScheduleTable(
-    itemList: List<OrderItemModel> = exampleWeekScheduleItemList,
+    isTask: Boolean = true,
+    itemList: List<WeekScheduleItemModel> = exampleWeekScheduleItemList,
     fieldWidthList: List<Dp>,
 ) {
+    val modifier = if (isTask) Modifier.fillMaxHeight() else Modifier.height(350.dp)
     LazyColumn(
-        modifier = Modifier
+        modifier = modifier
             .padding(start = 10.dp, end = 10.dp, bottom = 10.dp)
-            .height(350.dp)
             .fillMaxWidth()
             .border(
                 width = 0.5.dp,
@@ -263,14 +265,14 @@ fun WeekScheduleTable(
     ) {
         itemList.forEachIndexed { index, item ->
             item {
-//                WeekScheduleItemList(
-//                    item = item,
-//                    color = if (index % 2 == 0)
-//                        Pair(ElisaColor.White, ElisaColor.LightBlue)
-//                    else
-//                        Pair(ElisaColor.LightBlue, ElisaColor.White),
-//                    fieldWidthList = fieldWidthList,
-//                )
+                WeekScheduleItemList(
+                    item = item,
+                    color = if (index % 2 == 0)
+                        Pair(ElisaColor.White, ElisaColor.LightBlue)
+                    else
+                        Pair(ElisaColor.LightBlue, ElisaColor.White),
+                    fieldWidthList = fieldWidthList,
+                )
             }
         }
     }

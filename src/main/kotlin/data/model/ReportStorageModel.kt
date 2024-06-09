@@ -1,7 +1,8 @@
 package data.model
 
-data class BalanceReportItem(
+data class ReportStorageModel(
     val id: Long,
+    val article: String,
     val productName: String,
     val unit: String,
     val count: Int,

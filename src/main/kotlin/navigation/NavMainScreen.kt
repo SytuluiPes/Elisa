@@ -16,8 +16,8 @@ object NavMainScreen {
 
             MainScreenDestination.RouteSheetListScreen -> NavRouteSheetListScreen.init()
 
-            MainScreenDestination.MonthScheduleScreen -> TODO()
-            MainScreenDestination.WeekScheduleScreen -> TODO()
+            MainScreenDestination.MonthScheduleScreen -> NavMonthScheduleScreen.init()
+            MainScreenDestination.WeekScheduleScreen -> NavWeekScheduleScreen.init()
             MainScreenDestination.ReportSheetListScreen -> NavReportSheetListDestination.init()
         }
     }

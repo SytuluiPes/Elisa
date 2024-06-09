@@ -1,45 +1,51 @@
 package navigation
 
 import androidx.compose.runtime.*
-import ui.AddProductScreen
+import navigation.RouteSheetDestination.*
+import ui.product.AddProductScreen
 import ui.task.route.route.RouteSheetListScreen
 import ui.task.route.vehicle.AvailableVehicleScreen
-import ui.task.route.weekSchedule.WeekScheduleListScreen
+import ui.task.week.week.WeekScheduleListScreen
 
 object NavRouteSheetListScreen {
     @Composable
     fun init() {
         var predNavigation: RouteSheetDestination by
-        remember { mutableStateOf(RouteSheetDestination.RouteSheetListScreen) }
+        remember { mutableStateOf(RouteSheetListScreen) }
 
         var navigation: RouteSheetDestination by
-        remember { mutableStateOf(RouteSheetDestination.RouteSheetListScreen) }
+        remember { mutableStateOf(RouteSheetListScreen) }
         when (navigation) {
-            RouteSheetDestination.RouteSheetListScreen ->
+            RouteSheetListScreen ->
                 RouteSheetListScreen(
-                    onBackClick = { navigation = RouteSheetDestination.MainScreen },
+                    onBackClick = { navigation = MainScreen },
                     onItemClick = { itemDestination -> navigation = itemDestination },
                 )
 
-            RouteSheetDestination.MainScreen -> NavMainScreen.init()
+            MainScreen -> NavMainScreen.init()
 
-            RouteSheetDestination.WeekScheduleScreen -> WeekScheduleListScreen(
+            WeekScheduleScreen -> WeekScheduleListScreen(
+                isTask = false,
+                onAddAddressClick = {
+                    predNavigation = navigation
+                    navigation = AddProductScreen
+                },
                 onAddProductItemClick = {
                     predNavigation = navigation
-                    navigation = RouteSheetDestination.AddProductScreen
+                    navigation = AddProductScreen
                 },
-                onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }
+                onBackClick = { navigation = RouteSheetListScreen }
             )
 
-            RouteSheetDestination.AvailableVehicleListScreen -> AvailableVehicleScreen(
+            AvailableVehicleListScreen -> AvailableVehicleScreen(
                 onAddProductItemClick = {
                     predNavigation = navigation
-                    navigation = RouteSheetDestination.AddProductScreen
+                    navigation = AddProductScreen
                 },
-                onBackClick = { navigation = RouteSheetDestination.RouteSheetListScreen }
+                onBackClick = { navigation = RouteSheetListScreen }
             )
 
-            RouteSheetDestination.AddProductScreen -> AddProductScreen(
+            AddProductScreen -> AddProductScreen(
                 onBackClick = { navigation = predNavigation }
             )
         }

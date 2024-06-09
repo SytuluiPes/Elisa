@@ -1,7 +1,6 @@
-package ui.task.report.monthSchedule
+package ui.task.month.order
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -247,15 +246,14 @@ private val exampleWeekScheduleItemList = listOf(
 )
 
 @Composable
-fun MonthScheduleTable(
-    isTask: Boolean = true,
+fun OrderTable(
     itemList: List<OrderItemModel> = exampleWeekScheduleItemList,
     fieldWidthList: List<Dp>,
 ) {
-    val modifier = if (isTask) Modifier.fillMaxHeight() else Modifier.height(350.dp)
     LazyColumn(
-        modifier = modifier
+        modifier = Modifier
             .padding(start = 10.dp, end = 10.dp, bottom = 10.dp)
+            .height(350.dp)
             .fillMaxWidth()
             .border(
                 width = 0.5.dp,
@@ -265,7 +263,7 @@ fun MonthScheduleTable(
     ) {
         itemList.forEachIndexed { index, item ->
             item {
-                MonthScheduleItemList(
+                OrderItemList(
                     item = item,
                     color = if (index % 2 == 0)
                         Pair(ElisaColor.White, ElisaColor.LightBlue)
