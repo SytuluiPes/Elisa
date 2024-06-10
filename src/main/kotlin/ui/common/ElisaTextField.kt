@@ -26,7 +26,7 @@ fun ElisaTextField(
     OutlinedTextField(
         modifier = Modifier
             .height(65.dp)
-            .width(290.dp),
+            .width(250.dp),
         value = text,
         label = {
             Text(

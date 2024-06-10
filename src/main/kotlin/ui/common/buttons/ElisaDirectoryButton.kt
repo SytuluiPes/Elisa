@@ -13,20 +13,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ElisaBigItemButton(
+fun ElisaDirectoryButton(
     textButton: String,
     onButtonClick: () -> Unit = {},
 ) {
     TextButton(
         modifier = Modifier
-            .size(width = 300.dp, height = 150.dp)
+            .size(width = 600.dp, height = 45.dp)
             .border(1.dp, Color.Companion.Gray, RoundedCornerShape(15.dp)),
-
         onClick = onButtonClick,
         content = {
             Text(
                 text = textButton,
-                fontSize = 20.sp,
+                fontSize = 18.sp,
                 color = Color.DarkGray,
                 textAlign = TextAlign.Center,
             )

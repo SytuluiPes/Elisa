@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import util.ElisaColor
 
 @Composable
 fun ElisaSmallItemButton(
@@ -27,7 +28,7 @@ fun ElisaSmallItemButton(
             Text(
                 text = textButton,
                 fontSize = 12.sp,
-                color = Color.DarkGray,
+                color = ElisaColor.DarkGray,
                 textAlign = TextAlign.Center,
             )
         },

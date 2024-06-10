@@ -16,6 +16,7 @@ import util.ElisaColor
 fun ElisaDivider(
     color: Color = ElisaColor.White,
     size: Dp = 2.dp,
+    horizontalSize: Dp = 1.dp,
     isHorizontal: Boolean = true,
 ) {
     Divider(
@@ -25,7 +26,7 @@ fun ElisaDivider(
                 .width(1.dp)
         } else Modifier
             .fillMaxWidth()
-            .height(1.dp),
+            .height(horizontalSize),
         color = color,
         thickness = size,
     )

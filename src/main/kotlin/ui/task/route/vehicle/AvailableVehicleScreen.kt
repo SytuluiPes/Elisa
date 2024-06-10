@@ -21,6 +21,7 @@ import ui.common.buttons.ElisaButton
 import ui.common.buttons.FooterButtons
 import util.Constant
 import util.Constant.AVAILABLE_CAR
+import util.Constant.PRODUCT_LIST
 import util.ElisaColor
 
 private val exampleVehicleList = mutableStateListOf(
@@ -233,7 +234,7 @@ fun AvailableVehicleScreen(
                     onValueChange = { typeTransportation = it }
                 )
                 ElisaButton(
-                    textButton = "ТЕСТ",
+                    textButton = PRODUCT_LIST,
                     onButtonClick = onAddProductItemClick,
                 )
             }
