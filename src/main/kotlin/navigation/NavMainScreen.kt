@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import navigation.MainScreenDestination.MainScreen
 import ui.MainScreen
 import ui.address.AddAddressScreen
+import ui.factory.AddFactoryScreen
 import ui.product.AddProductScreen
 
 object NavMainScreen {
@@ -29,6 +30,9 @@ object NavMainScreen {
             MainScreenDestination.AddAddressScreen -> AddAddressScreen {
                 navigation = MainScreen
             }
+            MainScreenDestination.AddFactoryScreen -> AddFactoryScreen {
+                navigation = MainScreen
+            }
         }
     }
 }
@@ -41,4 +45,5 @@ enum class MainScreenDestination {
     ReportSheetListScreen,
     AddProductScreen,
     AddAddressScreen,
+    AddFactoryScreen,
 }

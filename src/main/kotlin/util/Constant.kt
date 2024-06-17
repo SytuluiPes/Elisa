@@ -55,4 +55,7 @@ object Constant {
     const val TOWN = "Город"
     const val STREET = "Улица"
     const val HOUSE = "Номер дома"
+
+    const val FACTORY_NAME = "Наименование цеха"
+
 }

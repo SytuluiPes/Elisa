@@ -3,6 +3,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import androidx.sqlite.SQLiteConnection
+import data.DbAdapter
 import navigation.NavMainScreen
 import util.Constant
 
@@ -34,6 +35,6 @@ class App {
 }
 
 fun main() {
-//    DbAdapter.init()
-    App()
+    DbAdapter.init()
+//    App()
 }

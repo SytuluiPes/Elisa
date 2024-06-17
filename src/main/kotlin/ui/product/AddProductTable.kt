@@ -160,6 +160,13 @@ private val exampleAddProductItemList = listOf(
         price = 95000,
         costPrice = 62000,
     ),
+    ProductModel(
+        productName = "Кирпич полнотелый М-150",
+        unit = "паллеты",
+        count = 0,
+        price = 0,
+        costPrice = 0,
+    )
 )
 
 @Composable

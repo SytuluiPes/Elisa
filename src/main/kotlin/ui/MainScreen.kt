@@ -82,6 +82,10 @@ fun MainScreen(
                     textButton = "Справочник адресов",
                     onButtonClick = { onItemClick(MainScreenDestination.AddAddressScreen) }
                 )
+                ElisaDirectoryButton(
+                    textButton = "Справочник цехов",
+                    onButtonClick = { onItemClick(MainScreenDestination.AddFactoryScreen) }
+                )
             }
         }
     }
